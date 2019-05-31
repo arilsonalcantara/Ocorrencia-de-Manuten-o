@@ -53,6 +53,12 @@ namespace Ocorrencia_de_Manutenção
 
         private void BtnLogin_Click(object sender, EventArgs e) // evento de click do botão de login
         {
+            int cont = 0;
+
+            string usuario;
+            string senha;
+
+
             DialogResult resp = new DialogResult(); // vai capturar a resposta do usuário  em determinado MessageBox
 
             string TextoMsg = "Bemv - Vindo ao RML"; //As 3 linhas abaixo são textos que serão usados no MessageBox
@@ -62,36 +68,39 @@ namespace Ocorrencia_de_Manutenção
             MessageBoxButtons BotaoMsg = MessageBoxButtons.RetryCancel; //Definindo qual tipo de botão vai aparecer quando exibir o MessageBox (No caso, vai ser RETRY e CANCEL)
             MessageBoxIcon IconeMsg = MessageBoxIcon.Exclamation; //Definindo qual ícone vai aparecer no MessageBox
 
-            do // do while, pois vai repetir enquanto usuário estiver errado, ou não cadastrado
+
+
+            usuario = txtUsername.Text; //recebendo o que o usuario digitou no campo
+            senha = txtPassword.Text;
+
+
+            /*Abaixo está chamando um método da classe Operações que terá um valor de retorno TRUE or FALSE
+             * E também está passando como parâmetro o usuario e a senha que preciso validar no XML */
+            bool verifica = MinhasOperações.ValidaUsuario(usuario, senha);
+
+            if (verifica == true)
             {
+                //abaixo é o trecho de código que chama a segunda tela, pois o usuário está correto
+                MessageBox.Show(TextoMsg, TituloMsg);
+                MenuOpção x = new MenuOpção(this);
 
-                string usuario = txtUsername.Text; //recebendo o que o usuario digitou no campo
-                string senha = txtPassword.Text;
+                x.Show();
 
 
-                /*Abaixo está chamando um método da classe Operações que terá um valor de retorno TRUE or FALSE
-                 * E também está passando como parâmetro o usuario e a senha que preciso validar no XML */
-                bool verifica = MinhasOperações.ValidaUsuario(usuario, senha); 
+            }
+            else
+            {
+                MessageBox.Show("Usuario não cadastrado", TituloMsg2, BotaoMsg, IconeMsg); // MessageBox que será exibido com o texto, botão e ícone que está declarado acima
 
-                if (verifica == true)
-                {
-                    //abaixo é o trecho de código que chama a segunda tela, pois o usuário está correto
-                    MessageBox.Show(TextoMsg, TituloMsg);
-                    MenuOpção x = new MenuOpção(this);
 
-                     x.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Usuario não cadastrado", TituloMsg2, BotaoMsg, IconeMsg); // MessageBox que será exibido com o texto, botão e ícone que está declarado acima
+                txtUsername.Clear();
+                txtPassword.Clear();
 
-                    txtUsername.Text = ""; //Quando ele clicar, o campo volta a ser vazio para escrever novamente
-                    txtPassword.Text = "";
+            }
 
-                }
-            } while (resp != DialogResult.Retry); // repetição enquanto o resultado for igual a RETRY
 
-            
+
+
         }
     }
 }
