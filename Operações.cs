@@ -17,14 +17,14 @@ namespace Ocorrencia_de_Manutenção
 
         public void InserirUsuario()
         {
-            MeusDados.GravarUsuarios();
+            MeusDados.GravarUsuarios(); //chamando método GravarUsuarios da classe Dados
         }
 
-        public bool ValidaUsuario(string usuario, string senha)
+        public bool ValidaUsuario(string usuario, string senha) //Método de validação, recebendo os parâmetros
         {
-            bool verifica = MeusDados.ValidaUsuarios(usuario,senha);
+            bool verifica = MeusDados.ValidaUsuarios(usuario,senha); //Chamando a classe dados, e passando mais uma vez usuario e senha
 
-            return verifica;
+            return verifica; // retorna para o Form1 TRUE (se existir o usuario) ou FALSE
         }
     }
 }

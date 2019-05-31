@@ -12,12 +12,12 @@ namespace Ocorrencia_de_Manutenção
 {
     public partial class MenuOpção : Form
     {
-        Form1 PainelLogin;
-        public MenuOpção(Form1 F)
+        Form1 PainelLogin; // aqui estou criando um objeto para poder enviar da Tela 1 (Painel de Login) para a Tela 2 (MenuOpção)
+        public MenuOpção(Form1 F) // Este metódo está recebendo um paramêtro do tipo Form1 (que é a primeira tel)
         {
             InitializeComponent();
 
-            PainelLogin = F;
+            PainelLogin = F; //Aqui é basicamente o recebimento da chamada da tela
         }
 
         private void Label1_TextChanged(object sender, EventArgs e)

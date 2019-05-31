@@ -13,16 +13,16 @@ namespace Ocorrencia_de_Manutenção
 {
     class Dados
     {
-        XmlSerializer Serialização;
+        XmlSerializer Serialização; //criando um objeto para serializar o XML
 
-        private ArrayList CadastroUsuarios;
+        private ArrayList CadastroUsuarios; //criando um ArrayList para (não sei se vamos precisar, mas tá aí)
 
         public Dados()
         {
             CadastroUsuarios = new ArrayList();
         }
 
-        public void GravarUsuarios()
+        public void GravarUsuarios() //abaixo método para escrever no XML (olhem um projeto do Bernardo de XML no SGA, está explicando cada linha abaixo)
         {
             TextWriter MeuWriter = new StreamWriter(@"D:\\Usuarios.xml");
 
@@ -35,7 +35,7 @@ namespace Ocorrencia_de_Manutenção
             MeuWriter.Close();
         }
 
-        public void LerXMLUsuarios()
+        public void LerXMLUsuarios() // Façam a mesma coisa, olhem no SGA
         {
             CadastroUsuarios.Clear();
 
@@ -48,10 +48,10 @@ namespace Ocorrencia_de_Manutenção
 
 
 
-            foreach (Usuarios xe in ListaUsuariosVetor)
+           /* foreach (Usuarios xe in ListaUsuariosVetor) //
             {
 
-            }
+            }*/
 
 
             Arquivo.Close();
@@ -59,37 +59,50 @@ namespace Ocorrencia_de_Manutenção
 
         public bool ValidaUsuarios(string usuario, string senha)
         {
-            bool user = false;
+            bool user = false; //Já acusando que o usário não existe
+
+            //Abaixo coloquei um TRY CATCH, pois caso não exista o arquivo, vai tratar o erro,
+            //e também quando o arquivo estiver vazio, quando rodar a primeira vez.
 
             try
             {
-                XElement p = XElement.Load(@"D:\\Usuarios.xml");
-                IEnumerable<XElement> pesquisa = from m in p.Elements("Usuarios")
-                                                 where (string)m.Element("_Username") == usuario
-                                                 select m;
+                //Abaixo estou usando uma interface que IEnumerable que me possibilita fazer uma pesquisa numa lista
+                //de um tipo específico (XElement). 
+                //A consulta que fiz diz o seguinte: "Procure em todos os elementos filhos (ou seja, que estão dentro da tag Usuarios no XML)
+                //o elemento (Element | com a tag _Username) o valor usuario(que estará com o usuario que eu digitei), e seleciona todos que corresponderem (select e)
 
-                foreach (XElement m in pesquisa)
+                XElement p = XElement.Load(@"D:\\Usuarios.xml"); 
+                IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
+                                                 where (string)e.Element("_Username") == usuario
+                                                 select e;
+
+                foreach (XElement e in pesquisa)
                 {
-                    if ((string)m.Element("_Username") == usuario && (string)m.Element("_Password") == senha)
+                    //O foreach vai percorrer a lista, e com a condição abaixo estou fazendo:
+                    // Se o elemento usuario que eu selecionei e a senha for exatamente igual a senha que digitei,
+                    //então o usuário existe, logo a variável USER, recebe TRUE
+                    // Reparem que na consulta eu não preciso colocar o Element _Password
+
+                    if ((string)e.Element("_Username") == usuario && (string)e.Element("_Password") == senha)
                         user = true;
                 }
 
-                return user;
+                return user; // retorna a validação
             }
 
-            catch (FileNotFoundException e)
+            catch (FileNotFoundException e) //excessão caso o arquivo XML não exista
             {
                 MessageBox.Show(e.Message);
                 FileStream Arquivo = new FileStream(@"D:\\Usuarios.xml", FileMode.OpenOrCreate);
                 Arquivo.Close();
 
-                return user;
+                return user; // retorna FALSE
             }
 
-            catch (System.Xml.XmlException e)
+            catch (System.Xml.XmlException e) // caso o arquivo esteja vazio
             {
                 MessageBox.Show(e.Message);
-                return user;
+                return user; // retorna falso
             }
 
         }
