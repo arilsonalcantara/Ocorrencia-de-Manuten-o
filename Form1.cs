@@ -74,9 +74,9 @@ namespace Ocorrencia_de_Manutenção
                 {
 
                     MessageBox.Show(TextoMsg, TituloMsg);
-                    //CadastroUsuario x = new CadastroUsuario(this);
+                    MenuOpção x = new MenuOpção(this);
 
-                    // x.Show();
+                     x.Show();
                 }
                 else
                 {

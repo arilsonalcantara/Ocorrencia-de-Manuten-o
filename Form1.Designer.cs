@@ -37,9 +37,9 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(141, 71);
+            this.txtUsername.Location = new System.Drawing.Point(128, 71);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(138, 20);
+            this.txtUsername.Size = new System.Drawing.Size(132, 20);
             this.txtUsername.TabIndex = 0;
             this.txtUsername.TextChanged += new System.EventHandler(this.TxtUsername_TextChanged);
             // 

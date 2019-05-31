@@ -12,9 +12,17 @@ namespace Ocorrencia_de_Manutenção
 {
     public partial class MenuOpção : Form
     {
-        public MenuOpção()
+        Form1 PainelLogin;
+        public MenuOpção(Form1 F)
         {
             InitializeComponent();
+
+            PainelLogin = F;
+        }
+
+        private void Label1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
