@@ -82,7 +82,7 @@ namespace Ocorrencia_de_Manutenção
             {
                 //abaixo é o trecho de código que chama a segunda tela, pois o usuário está correto
                 MessageBox.Show(TextoMsg, TituloMsg);
-                MenuOpção x = new MenuOpção(this);
+                MenuOpção x = new MenuOpção(this,usuario);
 
                 x.Show();
 
@@ -116,6 +116,7 @@ namespace Ocorrencia_de_Manutenção
             if (e.KeyChar == (char)Keys.Enter)
             {
                 btnLogin.Focus();
+                btnLogin.PerformClick();
             }
         }
 
@@ -127,6 +128,26 @@ namespace Ocorrencia_de_Manutenção
         private void Form1_BackColorChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void BtnCadastre_MouseEnter(object sender, EventArgs e)
+        {
+            btnCadastre.ForeColor = Color.White;
+        }
+
+        private void BtnCadastre_MouseLeave(object sender, EventArgs e)
+        {
+            btnCadastre.ForeColor = SystemColors.ControlDarkDark;
+        }
+
+        private void BtnLogin_MouseEnter(object sender, EventArgs e)
+        {
+            btnLogin.ForeColor = Color.White;
+        }
+
+        private void BtnLogin_MouseLeave(object sender, EventArgs e)
+        {
+            btnLogin.ForeColor = SystemColors.ControlDarkDark;
         }
     }
 }

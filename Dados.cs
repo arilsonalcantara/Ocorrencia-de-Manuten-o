@@ -24,7 +24,7 @@ namespace Ocorrencia_de_Manutenção
 
         public void GravarUsuarios() //abaixo método para escrever no XML (olhem um projeto do Bernardo de XML no SGA, está explicando cada linha abaixo)
         {
-            TextWriter MeuWriter = new StreamWriter(@"D:\\Usuarios.xml");
+            TextWriter MeuWriter = new StreamWriter(@"Usuarios.xml");
 
             Usuarios[] UsuariosVetor = (Usuarios[])CadastroUsuarios.ToArray(typeof(Usuarios));
 
@@ -39,7 +39,7 @@ namespace Ocorrencia_de_Manutenção
         {
             CadastroUsuarios.Clear();
 
-            FileStream Arquivo = new FileStream(@"D:\\Usuarios.xml", FileMode.Open);
+            FileStream Arquivo = new FileStream(@"Usuarios.xml", FileMode.Open);
 
             Usuarios[] ListaUsuariosVetor = (Usuarios[])Serialização.Deserialize(Arquivo); 
 
@@ -71,7 +71,7 @@ namespace Ocorrencia_de_Manutenção
                 //A consulta que fiz diz o seguinte: "Procure em todos os elementos filhos (ou seja, que estão dentro da tag Usuarios no XML)
                 //o elemento (Element | com a tag _Username) o valor usuario(que estará com o usuario que eu digitei), e seleciona todos que corresponderem (select e)
 
-                XElement p = XElement.Load(@"D:\\Usuarios.xml"); 
+                XElement p = XElement.Load(@"Usuarios.xml"); 
                 IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
                                                  where (string)e.Element("_Username") == usuario
                                                  select e;
@@ -93,7 +93,7 @@ namespace Ocorrencia_de_Manutenção
             catch (FileNotFoundException e) //excessão caso o arquivo XML não exista
             {
                 MessageBox.Show(e.Message);
-                FileStream Arquivo = new FileStream(@"D:\\Usuarios.xml", FileMode.OpenOrCreate);
+                FileStream Arquivo = new FileStream(@"Usuarios.xml", FileMode.OpenOrCreate);
                 Arquivo.Close();
 
                 return user; // retorna FALSE

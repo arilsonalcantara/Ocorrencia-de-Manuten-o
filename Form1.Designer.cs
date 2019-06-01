@@ -40,6 +40,9 @@
             // 
             this.txtUsername.AcceptsTab = true;
             this.txtUsername.AccessibleRole = System.Windows.Forms.AccessibleRole.Cursor;
+            this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsername.BackColor = System.Drawing.SystemColors.Info;
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUsername.Font = new System.Drawing.Font("Verdana", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
@@ -55,6 +58,9 @@
             // txtPassword
             // 
             this.txtPassword.AccessibleRole = System.Windows.Forms.AccessibleRole.Cursor;
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword.BackColor = System.Drawing.SystemColors.Info;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
@@ -67,6 +73,10 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogin.AutoSize = true;
             this.btnLogin.BackColor = System.Drawing.SystemColors.Control;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -81,6 +91,8 @@
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            this.btnLogin.MouseEnter += new System.EventHandler(this.BtnLogin_MouseEnter);
+            this.btnLogin.MouseLeave += new System.EventHandler(this.BtnLogin_MouseLeave);
             // 
             // label1
             // 
@@ -102,6 +114,10 @@
             // 
             // btnCadastre
             // 
+            this.btnCadastre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCadastre.AutoSize = true;
             this.btnCadastre.BackColor = System.Drawing.SystemColors.Control;
             this.btnCadastre.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastre.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -111,10 +127,12 @@
             this.btnCadastre.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnCadastre.Location = new System.Drawing.Point(193, 178);
             this.btnCadastre.Name = "btnCadastre";
-            this.btnCadastre.Size = new System.Drawing.Size(143, 23);
+            this.btnCadastre.Size = new System.Drawing.Size(143, 25);
             this.btnCadastre.TabIndex = 5;
             this.btnCadastre.Text = "Cadastre-se";
             this.btnCadastre.UseVisualStyleBackColor = false;
+            this.btnCadastre.MouseEnter += new System.EventHandler(this.BtnCadastre_MouseEnter);
+            this.btnCadastre.MouseLeave += new System.EventHandler(this.BtnCadastre_MouseLeave);
             // 
             // Form1
             // 
