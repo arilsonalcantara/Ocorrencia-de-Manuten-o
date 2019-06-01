@@ -102,5 +102,31 @@ namespace Ocorrencia_de_Manutenção
 
 
         }
+
+        private void TxtUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtPassword.Focus();
+            }
+        }
+
+        private void TxtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnLogin.Focus();
+            }
+        }
+
+        private void btnCadastre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_BackColorChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
