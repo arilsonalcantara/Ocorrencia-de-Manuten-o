@@ -53,6 +53,12 @@
     <Compile Include="CadastroLaboratório.Designer.cs">
       <DependentUpon>CadastroLaboratório.cs</DependentUpon>
     </Compile>
+    <Compile Include="CadastroUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroUsuario.Designer.cs">
+      <DependentUpon>CadastroUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Laboratório.cs" />
     <Compile Include="MenuOpção.cs">
       <SubType>Form</SubType>
@@ -73,6 +79,9 @@
     <Compile Include="Usuarios.cs" />
     <EmbeddedResource Include="CadastroLaboratório.resx">
       <DependentUpon>CadastroLaboratório.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroUsuario.resx">
+      <DependentUpon>CadastroUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuOpção.resx">
       <DependentUpon>MenuOpção.cs</DependentUpon>
