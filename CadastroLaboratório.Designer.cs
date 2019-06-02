@@ -57,20 +57,20 @@ namespace Ocorrencia_de_Manutenção
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAdministrador.AutoSize = true;
-            this.lblAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdministrador.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdministrador.Location = new System.Drawing.Point(26, 57);
             this.lblAdministrador.Name = "lblAdministrador";
-            this.lblAdministrador.Size = new System.Drawing.Size(88, 16);
+            this.lblAdministrador.Size = new System.Drawing.Size(91, 14);
             this.lblAdministrador.TabIndex = 2;
             this.lblAdministrador.Text = "Admnistrador";
             // 
             // lblCódigoLaboratório
             // 
             this.lblCódigoLaboratório.AutoSize = true;
-            this.lblCódigoLaboratório.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCódigoLaboratório.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCódigoLaboratório.Location = new System.Drawing.Point(26, 113);
             this.lblCódigoLaboratório.Name = "lblCódigoLaboratório";
-            this.lblCódigoLaboratório.Size = new System.Drawing.Size(143, 16);
+            this.lblCódigoLaboratório.Size = new System.Drawing.Size(148, 14);
             this.lblCódigoLaboratório.TabIndex = 3;
             this.lblCódigoLaboratório.Text = "Código do Laboratório";
             // 
@@ -95,20 +95,20 @@ namespace Ocorrencia_de_Manutenção
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(26, 163);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 16);
+            this.label3.Size = new System.Drawing.Size(41, 15);
             this.label3.TabIndex = 7;
             this.label3.Text = "Status";
             // 
             // lblPrédio
             // 
             this.lblPrédio.AutoSize = true;
-            this.lblPrédio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrédio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrédio.Location = new System.Drawing.Point(26, 225);
             this.lblPrédio.Name = "lblPrédio";
-            this.lblPrédio.Size = new System.Drawing.Size(48, 16);
+            this.lblPrédio.Size = new System.Drawing.Size(43, 15);
             this.lblPrédio.TabIndex = 8;
             this.lblPrédio.Text = "Prédio";
             // 
@@ -119,15 +119,16 @@ namespace Ocorrencia_de_Manutenção
             this.txtPrédio.Name = "txtPrédio";
             this.txtPrédio.Size = new System.Drawing.Size(185, 20);
             this.txtPrédio.TabIndex = 9;
-            this.txtPrédio.Text = "  ";
+            this.txtPrédio.Text = "  Prédio";
             // 
             // btnSalvarUsuario
             // 
-            this.btnSalvarUsuario.Location = new System.Drawing.Point(473, 280);
+            this.btnSalvarUsuario.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvarUsuario.Location = new System.Drawing.Point(236, 279);
             this.btnSalvarUsuario.Name = "btnSalvarUsuario";
             this.btnSalvarUsuario.Size = new System.Drawing.Size(75, 23);
             this.btnSalvarUsuario.TabIndex = 10;
-            this.btnSalvarUsuario.Text = "SALVAR";
+            this.btnSalvarUsuario.Text = "Salvar";
             this.btnSalvarUsuario.UseVisualStyleBackColor = true;
             // 
             // CadastroLaboratório
