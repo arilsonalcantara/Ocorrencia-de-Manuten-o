@@ -1,4 +1,6 @@
-﻿namespace Ocorrencia_de_Manutenção
+﻿using System.Windows.Forms;
+
+namespace Ocorrencia_de_Manutenção
 {
     partial class CadastroLaboratório
     {
@@ -29,13 +31,13 @@
         private void InitializeComponent()
         {
             this.txtAdm = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblAdministrador = new System.Windows.Forms.Label();
+            this.lblCódigoLaborátorio = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblPrédio = new System.Windows.Forms.Label();
-            this.txtSala = new System.Windows.Forms.TextBox();
+            this.txtPrédio = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtAdm
@@ -50,16 +52,16 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblAdministrador.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Admnistrador";
+            this.lblAdministrador.AutoSize = true;
+            this.lblAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdministrador.Location = new System.Drawing.Point(26, 57);
+            this.lblAdministrador.Name = "label1";
+            this.lblAdministrador.Size = new System.Drawing.Size(88, 16);
+            this.lblAdministrador.TabIndex = 2;
+            this.lblAdministrador.Text = "Admnistrador";
             // 
             // label2
             // 
@@ -111,25 +113,25 @@
             // 
             // txtSala
             // 
-            this.txtSala.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtSala.Location = new System.Drawing.Point(187, 225);
-            this.txtSala.Name = "txtSala";
-            this.txtSala.Size = new System.Drawing.Size(185, 20);
-            this.txtSala.TabIndex = 9;
-            this.txtSala.Text = "  ";
+            this.txtPrédio.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtPrédio.Location = new System.Drawing.Point(187, 225);
+            this.txtPrédio.Name = "txtSala";
+            this.txtPrédio.Size = new System.Drawing.Size(185, 20);
+            this.txtPrédio.TabIndex = 9;
+            this.txtPrédio.Text = "  ";
             // 
             // CadastroLaboratório
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 336);
-            this.Controls.Add(this.txtSala);
+            this.Controls.Add(this.txtPrédio);
             this.Controls.Add(this.lblPrédio);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblAdministrador);
             this.Controls.Add(this.txtAdm);
             this.Name = "CadastroLaboratório";
             this.Text = "CadastroLaboratório";
@@ -141,12 +143,13 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtAdm;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblAdministrador;
+        private Label lblCódigoLaborátorio;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblPrédio;
-        private System.Windows.Forms.TextBox txtSala;
+        private System.Windows.Forms.TextBox txtPrédio;
     }
 }
