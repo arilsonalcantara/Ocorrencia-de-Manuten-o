@@ -36,7 +36,7 @@ namespace Ocorrencia_de_Manutenção
             set { _Status = value; }
         }
 
-        // Mudança para prédio. Para identificar o local do labortório 
+        // Mudança para prédio. Para identificar o local do labortório
 
         private string _Prédio;
 
