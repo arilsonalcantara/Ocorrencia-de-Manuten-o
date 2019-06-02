@@ -32,6 +32,15 @@ namespace Ocorrencia_de_Manutenção
             set { _Tipo = value; }
         }
 
+        private string _Email;
+
+        public string Email
+        {
+            get { return _Email; }
+            set { _Email = value; }
+        }
+
+
 
         private string _Password;
 

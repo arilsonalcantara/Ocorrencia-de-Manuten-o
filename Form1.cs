@@ -12,7 +12,7 @@ namespace Ocorrencia_de_Manutenção
 {
     public partial class Form1 : Form
     {
-        Operações MinhasOperações = new Operações(); // Instanciando a classe operações, pois aqui dentro eu preciso chama-la (para validar o usuario, clique na classe operações para entender melhor)
+        Operações MinhasOperações = new Operações(); 
         public Form1()
         {
             InitializeComponent();
@@ -20,21 +20,21 @@ namespace Ocorrencia_de_Manutenção
            
         }
 
-        private void TxtUsername_TextChanged(object sender, EventArgs e) // TextChanged é algo que vai fazer quando houver alteração no TextBox
+        private void TxtUsername_TextChanged(object sender, EventArgs e) 
         {
-            if (!string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text)) //condição que verifica se os dois TextBox estão preenchidos
+            if (!string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text)) 
             {
-                btnLogin.Enabled = true; // se estiverem preenchidos, o botão de login fica ativo
+                btnLogin.Enabled = true; 
             }
             else
             {
-                btnLogin.Enabled = false; // se somente um estiver preenchido, o botão fica inacessível.
+                btnLogin.Enabled = false; 
             }
         }
 
         private void TxtPassword_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text)) //mesma coisa acima
+            if (!string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text)) 
             {
                 btnLogin.Enabled = true;
             }
@@ -43,39 +43,38 @@ namespace Ocorrencia_de_Manutenção
                 btnLogin.Enabled = false;
             }
 
-            if (!string.IsNullOrEmpty(txtPassword.Text)) //condição para verificar se o campo de senha está preenchido
+            if (!string.IsNullOrEmpty(txtPassword.Text)) 
             {
-                txtPassword.UseSystemPasswordChar = true; // sendo assim sua propriedade muda, em vez de aparecer a senha, vai aparecer caracter de password
+                txtPassword.UseSystemPasswordChar = true; 
             }
             else
             {
-                btnLogin.Enabled = false; // se não estiver preenchido, nada acontece
+                btnLogin.Enabled = false; 
             }
         }
 
-        private void BtnLogin_Click(object sender, EventArgs e) // evento de click do botão de login
+        private void BtnLogin_Click(object sender, EventArgs e) 
         {
             string usuario;
             string senha;
 
 
-           // DialogResult resp = new DialogResult(); // vai capturar a resposta do usuário  em determinado MessageBox
+           
 
-            string TextoMsg = "Bemv - Vindo ao RML"; //As 3 linhas abaixo são textos que serão usados no MessageBox
+            string TextoMsg = "Bemv - Vindo ao RML"; 
             string TituloMsg = "Acesso Concedido";
             string TituloMsg2 = "Acesso Negado";
 
-            MessageBoxButtons BotaoMsg = MessageBoxButtons.RetryCancel; //Definindo qual tipo de botão vai aparecer quando exibir o MessageBox (No caso, vai ser RETRY e CANCEL)
-            MessageBoxIcon IconeMsg = MessageBoxIcon.Exclamation; //Definindo qual ícone vai aparecer no MessageBox
+            MessageBoxButtons BotaoMsg = MessageBoxButtons.RetryCancel; 
+            MessageBoxIcon IconeMsg = MessageBoxIcon.Exclamation; 
 
 
 
-            usuario = txtUsername.Text; //recebendo o que o usuario digitou no campo
+            usuario = txtUsername.Text;
             senha = txtPassword.Text;
 
 
-            /*Abaixo está chamando um método da classe Operações que terá um valor de retorno TRUE or FALSE
-             * E também está passando como parâmetro o usuario e a senha que preciso validar no XML */
+            
             bool verifica = MinhasOperações.ValidaUsuario(usuario, senha);
 
             if (verifica == true)

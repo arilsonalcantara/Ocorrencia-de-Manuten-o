@@ -37,18 +37,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textConfirmarSenha = new System.Windows.Forms.TextBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblTipo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textNome
             // 
-            this.textNome.Location = new System.Drawing.Point(143, 29);
+            this.textNome.Location = new System.Drawing.Point(123, 32);
             this.textNome.Name = "textNome";
             this.textNome.Size = new System.Drawing.Size(152, 20);
             this.textNome.TabIndex = 0;
             // 
             // textEmail
             // 
-            this.textEmail.Location = new System.Drawing.Point(143, 77);
+            this.textEmail.Location = new System.Drawing.Point(123, 77);
             this.textEmail.Name = "textEmail";
             this.textEmail.Size = new System.Drawing.Size(152, 20);
             this.textEmail.TabIndex = 1;
@@ -57,17 +59,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(37, 36);
+            this.label1.Location = new System.Drawing.Point(12, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Nome";
+            this.label1.Text = "Usuário";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(37, 126);
+            this.label2.Location = new System.Drawing.Point(12, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 3;
@@ -77,7 +79,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(37, 77);
+            this.label3.Location = new System.Drawing.Point(12, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 4;
@@ -85,7 +87,7 @@
             // 
             // textSenha
             // 
-            this.textSenha.Location = new System.Drawing.Point(143, 123);
+            this.textSenha.Location = new System.Drawing.Point(123, 126);
             this.textSenha.Name = "textSenha";
             this.textSenha.Size = new System.Drawing.Size(152, 20);
             this.textSenha.TabIndex = 5;
@@ -102,7 +104,7 @@
             // 
             // textConfirmarSenha
             // 
-            this.textConfirmarSenha.Location = new System.Drawing.Point(143, 169);
+            this.textConfirmarSenha.Location = new System.Drawing.Point(123, 169);
             this.textConfirmarSenha.Name = "textConfirmarSenha";
             this.textConfirmarSenha.Size = new System.Drawing.Size(152, 20);
             this.textConfirmarSenha.TabIndex = 7;
@@ -123,11 +125,34 @@
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Administrador",
+            "Usuário Padrão"});
+            this.comboBox1.Location = new System.Drawing.Point(384, 168);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 9;
+            // 
+            // lblTipo
+            // 
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipo.Location = new System.Drawing.Point(381, 142);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(96, 13);
+            this.lblTipo.TabIndex = 10;
+            this.lblTipo.Text = "Tipo do Usuário";
+            // 
             // CadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 319);
+            this.Controls.Add(this.lblTipo);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.textConfirmarSenha);
             this.Controls.Add(this.label4);
@@ -155,5 +180,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textConfirmarSenha;
         private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblTipo;
     }
 }
