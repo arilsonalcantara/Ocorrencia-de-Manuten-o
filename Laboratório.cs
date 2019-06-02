@@ -36,14 +36,14 @@ namespace Ocorrencia_de_Manutenção
             set { _Status = value; }
         }
 
-        //Coloquei sala para idenficar o local que o laboratório se encontra.
+        // Mudança para prédio. Para identificar o local do labortório. 
 
-        private string _Sala;
+        private string _Prédio;
 
-        public string Sala
+        public string Prédio
         {
-            get { return _Sala; }
-            set { _Sala = value; }
+            get { return _Prédio; }
+            set { _Prédio = value; }
         }
 
         //Pensei em colocar código do usuário também lá na tela.

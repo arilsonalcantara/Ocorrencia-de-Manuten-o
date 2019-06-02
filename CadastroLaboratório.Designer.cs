@@ -29,52 +29,53 @@
         private void InitializeComponent()
         {
             this.txtAdm = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblAdministrador = new System.Windows.Forms.Label();
+            this.lblCódigoLaboratório = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtSala = new System.Windows.Forms.TextBox();
+            this.lblPrédio = new System.Windows.Forms.Label();
+            this.txtPrédio = new System.Windows.Forms.TextBox();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtAdm
             // 
             this.txtAdm.BackColor = System.Drawing.SystemColors.Window;
             this.txtAdm.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtAdm.Location = new System.Drawing.Point(187, 57);
+            this.txtAdm.Location = new System.Drawing.Point(199, 57);
             this.txtAdm.Name = "txtAdm";
             this.txtAdm.Size = new System.Drawing.Size(185, 20);
             this.txtAdm.TabIndex = 0;
             this.txtAdm.Text = "Administrador";
             // 
-            // label1
+            // lblAdministrador
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblAdministrador.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Admnistrador";
+            this.lblAdministrador.AutoSize = true;
+            this.lblAdministrador.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdministrador.Location = new System.Drawing.Point(26, 57);
+            this.lblAdministrador.Name = "lblAdministrador";
+            this.lblAdministrador.Size = new System.Drawing.Size(91, 14);
+            this.lblAdministrador.TabIndex = 2;
+            this.lblAdministrador.Text = "Admnistrador";
             // 
-            // label2
+            // lblCódigoLaboratório
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 113);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Código do Laboratório";
+            this.lblCódigoLaboratório.AutoSize = true;
+            this.lblCódigoLaboratório.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCódigoLaboratório.Location = new System.Drawing.Point(26, 113);
+            this.lblCódigoLaboratório.Name = "lblCódigoLaboratório";
+            this.lblCódigoLaboratório.Size = new System.Drawing.Size(148, 14);
+            this.lblCódigoLaboratório.TabIndex = 3;
+            this.lblCódigoLaboratório.Text = "Código do Laboratório";
             // 
             // textBox1
             // 
             this.textBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(187, 113);
+            this.textBox1.Location = new System.Drawing.Point(199, 113);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(185, 20);
             this.textBox1.TabIndex = 4;
@@ -83,7 +84,7 @@
             // txtStatus
             // 
             this.txtStatus.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtStatus.Location = new System.Drawing.Point(187, 163);
+            this.txtStatus.Location = new System.Drawing.Point(199, 163);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(185, 20);
             this.txtStatus.TabIndex = 5;
@@ -92,44 +93,55 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(26, 163);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 16);
+            this.label3.Size = new System.Drawing.Size(48, 14);
             this.label3.TabIndex = 7;
             this.label3.Text = "Status";
             // 
-            // label4
+            // lblPrédio
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(26, 225);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Sala";
+            this.lblPrédio.AutoSize = true;
+            this.lblPrédio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrédio.Location = new System.Drawing.Point(26, 225);
+            this.lblPrédio.Name = "lblPrédio";
+            this.lblPrédio.Size = new System.Drawing.Size(47, 14);
+            this.lblPrédio.TabIndex = 8;
+            this.lblPrédio.Text = "Prédio";
             // 
-            // txtSala
+            // txtPrédio
             // 
-            this.txtSala.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtSala.Location = new System.Drawing.Point(187, 225);
-            this.txtSala.Name = "txtSala";
-            this.txtSala.Size = new System.Drawing.Size(185, 20);
-            this.txtSala.TabIndex = 9;
-            this.txtSala.Text = "  ";
+            this.txtPrédio.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtPrédio.Location = new System.Drawing.Point(199, 221);
+            this.txtPrédio.Name = "txtPrédio";
+            this.txtPrédio.Size = new System.Drawing.Size(185, 20);
+            this.txtPrédio.TabIndex = 9;
+            this.txtPrédio.Text = "Prédio";
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar.Location = new System.Drawing.Point(213, 279);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(127, 23);
+            this.btnSalvar.TabIndex = 10;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
             // 
             // CadastroLaboratório
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 336);
-            this.Controls.Add(this.txtSala);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.txtPrédio);
+            this.Controls.Add(this.lblPrédio);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblCódigoLaboratório);
+            this.Controls.Add(this.lblAdministrador);
             this.Controls.Add(this.txtAdm);
             this.Name = "CadastroLaboratório";
             this.Text = "CadastroLaboratório";
@@ -141,12 +153,13 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtAdm;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblAdministrador;
+        private System.Windows.Forms.Label lblCódigoLaboratório;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtSala;
+        private System.Windows.Forms.Label lblPrédio;
+        private System.Windows.Forms.TextBox txtPrédio;
+        private System.Windows.Forms.Button btnSalvar;
     }
 }
