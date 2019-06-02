@@ -16,6 +16,8 @@ namespace Ocorrencia_de_Manutenção
         public Form1()
         {
             InitializeComponent();
+
+           
         }
 
         private void TxtUsername_TextChanged(object sender, EventArgs e) // TextChanged é algo que vai fazer quando houver alteração no TextBox
@@ -148,6 +150,11 @@ namespace Ocorrencia_de_Manutenção
         private void BtnLogin_MouseLeave(object sender, EventArgs e)
         {
             btnLogin.ForeColor = SystemColors.ControlDarkDark;
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
