@@ -68,7 +68,7 @@ namespace Ocorrencia_de_Manutenção
             this.lblCódigoLaboratório.AutoSize = true;
             this.lblCódigoLaboratório.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCódigoLaboratório.Location = new System.Drawing.Point(26, 113);
-            this.lblCódigoLaboratório.Name = "label2";
+            this.lblCódigoLaboratório.Name = "lblCódigoLaboratório";
             this.lblCódigoLaboratório.Size = new System.Drawing.Size(143, 16);
             this.lblCódigoLaboratório.TabIndex = 3;
             this.lblCódigoLaboratório.Text = "Código do Laboratório";
