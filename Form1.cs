@@ -55,13 +55,11 @@ namespace Ocorrencia_de_Manutenção
 
         private void BtnLogin_Click(object sender, EventArgs e) // evento de click do botão de login
         {
-            int cont = 0;
-
             string usuario;
             string senha;
 
 
-            DialogResult resp = new DialogResult(); // vai capturar a resposta do usuário  em determinado MessageBox
+           // DialogResult resp = new DialogResult(); // vai capturar a resposta do usuário  em determinado MessageBox
 
             string TextoMsg = "Bemv - Vindo ao RML"; //As 3 linhas abaixo são textos que serão usados no MessageBox
             string TituloMsg = "Acesso Concedido";
@@ -155,6 +153,13 @@ namespace Ocorrencia_de_Manutenção
         private void Label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnCadastre_Click_1(object sender, EventArgs e)
+        {
+            //MenuOpção x = new MenuOpção(this);
+
+            //x.Show();
         }
     }
 }

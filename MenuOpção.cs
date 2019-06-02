@@ -19,11 +19,19 @@ namespace Ocorrencia_de_Manutenção
 
             PainelLogin = F; //Aqui é basicamente o recebimento da chamada da tela
             lblUser.Text = user; //Para mostrar o usuario que está usando
+
         }
 
         private void Label1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            CadastroLaboratório x = new CadastroLaboratório(this);
+
+            x.Show();
         }
     }
 }
