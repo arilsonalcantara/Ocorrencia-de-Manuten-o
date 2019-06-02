@@ -34,7 +34,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblPrédio = new System.Windows.Forms.Label();
             this.txtSala = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -99,15 +99,15 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Status";
             // 
-            // label4
+            // lblPrédio
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(26, 225);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Sala";
+            this.lblPrédio.AutoSize = true;
+            this.lblPrédio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrédio.Location = new System.Drawing.Point(26, 225);
+            this.lblPrédio.Name = "lblPrédio";
+            this.lblPrédio.Size = new System.Drawing.Size(48, 16);
+            this.lblPrédio.TabIndex = 8;
+            this.lblPrédio.Text = "Prédio";
             // 
             // txtSala
             // 
@@ -124,7 +124,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 336);
             this.Controls.Add(this.txtSala);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblPrédio);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.textBox1);
@@ -146,7 +146,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblPrédio;
         private System.Windows.Forms.TextBox txtSala;
     }
 }
