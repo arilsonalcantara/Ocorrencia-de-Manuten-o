@@ -32,8 +32,6 @@ namespace Ocorrencia_de_Manutenção
         {
             this.txtAdm = new System.Windows.Forms.TextBox();
             this.lblAdministrador = new System.Windows.Forms.Label();
-            this.lblCódigoLaboratório = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblPrédio = new System.Windows.Forms.Label();
@@ -64,29 +62,10 @@ namespace Ocorrencia_de_Manutenção
             this.lblAdministrador.TabIndex = 2;
             this.lblAdministrador.Text = "Admnistrador";
             // 
-            // lblCódigoLaboratório
-            // 
-            this.lblCódigoLaboratório.AutoSize = true;
-            this.lblCódigoLaboratório.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCódigoLaboratório.Location = new System.Drawing.Point(26, 113);
-            this.lblCódigoLaboratório.Name = "lblCódigoLaboratório";
-            this.lblCódigoLaboratório.Size = new System.Drawing.Size(148, 14);
-            this.lblCódigoLaboratório.TabIndex = 3;
-            this.lblCódigoLaboratório.Text = "Código do Laboratório";
-            // 
-            // textBox1
-            // 
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(187, 113);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(185, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "Código";
-            // 
             // txtStatus
             // 
             this.txtStatus.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtStatus.Location = new System.Drawing.Point(187, 163);
+            this.txtStatus.Location = new System.Drawing.Point(187, 103);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(185, 20);
             this.txtStatus.TabIndex = 5;
@@ -96,7 +75,7 @@ namespace Ocorrencia_de_Manutenção
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 163);
+            this.label3.Location = new System.Drawing.Point(28, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 15);
             this.label3.TabIndex = 7;
@@ -106,7 +85,7 @@ namespace Ocorrencia_de_Manutenção
             // 
             this.lblPrédio.AutoSize = true;
             this.lblPrédio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrédio.Location = new System.Drawing.Point(26, 225);
+            this.lblPrédio.Location = new System.Drawing.Point(28, 163);
             this.lblPrédio.Name = "lblPrédio";
             this.lblPrédio.Size = new System.Drawing.Size(43, 15);
             this.lblPrédio.TabIndex = 8;
@@ -141,8 +120,6 @@ namespace Ocorrencia_de_Manutenção
             this.Controls.Add(this.lblPrédio);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtStatus);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lblCódigoLaboratório);
             this.Controls.Add(this.lblAdministrador);
             this.Controls.Add(this.txtAdm);
             this.Name = "CadastroLaboratório";
@@ -156,9 +133,7 @@ namespace Ocorrencia_de_Manutenção
 
         private System.Windows.Forms.TextBox txtAdm;
         private System.Windows.Forms.Label lblAdministrador;
-        private Label lblCódigoLaboratório;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblPrédio;
