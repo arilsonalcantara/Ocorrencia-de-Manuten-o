@@ -38,6 +38,7 @@ namespace Ocorrencia_de_Manutenção
             this.label3 = new System.Windows.Forms.Label();
             this.lblPrédio = new System.Windows.Forms.Label();
             this.txtPrédio = new System.Windows.Forms.TextBox();
+            this.btnSalvarUsuario = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtAdm
@@ -50,7 +51,7 @@ namespace Ocorrencia_de_Manutenção
             this.txtAdm.TabIndex = 0;
             this.txtAdm.Text = "Administrador";
             // 
-            // label1
+            // lblAdministrador
             // 
             this.lblAdministrador.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -58,12 +59,12 @@ namespace Ocorrencia_de_Manutenção
             this.lblAdministrador.AutoSize = true;
             this.lblAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdministrador.Location = new System.Drawing.Point(26, 57);
-            this.lblAdministrador.Name = "label1";
+            this.lblAdministrador.Name = "lblAdministrador";
             this.lblAdministrador.Size = new System.Drawing.Size(88, 16);
             this.lblAdministrador.TabIndex = 2;
             this.lblAdministrador.Text = "Admnistrador";
             // 
-            // label2
+            // lblCódigoLaboratório
             // 
             this.lblCódigoLaboratório.AutoSize = true;
             this.lblCódigoLaboratório.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -111,20 +112,30 @@ namespace Ocorrencia_de_Manutenção
             this.lblPrédio.TabIndex = 8;
             this.lblPrédio.Text = "Prédio";
             // 
-            // txtSala
+            // txtPrédio
             // 
             this.txtPrédio.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.txtPrédio.Location = new System.Drawing.Point(187, 225);
-            this.txtPrédio.Name = "txtSala";
+            this.txtPrédio.Name = "txtPrédio";
             this.txtPrédio.Size = new System.Drawing.Size(185, 20);
             this.txtPrédio.TabIndex = 9;
             this.txtPrédio.Text = "  ";
+            // 
+            // btnSalvarUsuario
+            // 
+            this.btnSalvarUsuario.Location = new System.Drawing.Point(473, 280);
+            this.btnSalvarUsuario.Name = "btnSalvarUsuario";
+            this.btnSalvarUsuario.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvarUsuario.TabIndex = 10;
+            this.btnSalvarUsuario.Text = "SALVAR";
+            this.btnSalvarUsuario.UseVisualStyleBackColor = true;
             // 
             // CadastroLaboratório
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 336);
+            this.Controls.Add(this.btnSalvarUsuario);
             this.Controls.Add(this.txtPrédio);
             this.Controls.Add(this.lblPrédio);
             this.Controls.Add(this.label3);
@@ -151,5 +162,6 @@ namespace Ocorrencia_de_Manutenção
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblPrédio;
         private System.Windows.Forms.TextBox txtPrédio;
+        private Button btnSalvarUsuario;
     }
 }
