@@ -12,9 +12,11 @@ namespace Ocorrencia_de_Manutenção
 {
     public partial class CadastroLaboratório : Form
     {
-        public CadastroLaboratório()
+        MenuOpção OpçãoCadastro;
+        public CadastroLaboratório(MenuOpção opc)
         {
             InitializeComponent();
+            OpçãoCadastro = opc;
         }
 
         

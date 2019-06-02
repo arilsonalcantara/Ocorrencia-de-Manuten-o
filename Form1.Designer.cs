@@ -120,6 +120,7 @@
             this.btnCadastre.TabIndex = 5;
             this.btnCadastre.Text = "Cadastre-se";
             this.btnCadastre.UseVisualStyleBackColor = false;
+            this.btnCadastre.Click += new System.EventHandler(this.BtnCadastre_Click_1);
             this.btnCadastre.MouseEnter += new System.EventHandler(this.BtnCadastre_MouseEnter);
             this.btnCadastre.MouseLeave += new System.EventHandler(this.BtnCadastre_MouseLeave);
             // 
