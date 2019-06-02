@@ -32,7 +32,7 @@ namespace Ocorrencia_de_Manutenção
         {
             this.txtAdm = new System.Windows.Forms.TextBox();
             this.lblAdministrador = new System.Windows.Forms.Label();
-            this.lblCódigoLaborátorio = new System.Windows.Forms.Label();
+            this.lblCódigoLaboratório = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,13 +65,13 @@ namespace Ocorrencia_de_Manutenção
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 113);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Código do Laboratório";
+            this.lblCódigoLaboratório.AutoSize = true;
+            this.lblCódigoLaboratório.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCódigoLaboratório.Location = new System.Drawing.Point(26, 113);
+            this.lblCódigoLaboratório.Name = "label2";
+            this.lblCódigoLaboratório.Size = new System.Drawing.Size(143, 16);
+            this.lblCódigoLaboratório.TabIndex = 3;
+            this.lblCódigoLaboratório.Text = "Código do Laboratório";
             // 
             // textBox1
             // 
@@ -130,7 +130,7 @@ namespace Ocorrencia_de_Manutenção
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblCódigoLaboratório);
             this.Controls.Add(this.lblAdministrador);
             this.Controls.Add(this.txtAdm);
             this.Name = "CadastroLaboratório";
@@ -144,7 +144,7 @@ namespace Ocorrencia_de_Manutenção
 
         private System.Windows.Forms.TextBox txtAdm;
         private System.Windows.Forms.Label lblAdministrador;
-        private Label lblCódigoLaborátorio;
+        private Label lblCódigoLaboratório;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtStatus;
