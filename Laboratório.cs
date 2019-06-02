@@ -16,12 +16,12 @@ namespace Ocorrencia_de_Manutenção
             set { _Adiministrador = value; }
         }
 
-        private string _Código; // Cada laboratório possui um identificador que é o código.
+        private string _CódigoLab; // Cada laboratório possui um identificador que é o código.
 
-        public string Código
+        public string CódigoLab
         {
-            get { return _Código; }
-            set { _Código = value; }
+            get { return _CódigoLab; }
+            set { _CódigoLab = value; }
         }
 
         // Pensei que isso seria útil para a listagem, 
