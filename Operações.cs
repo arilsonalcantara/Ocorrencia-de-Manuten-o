@@ -50,5 +50,48 @@ namespace Ocorrencia_de_Manutenção
 
             return verifica; // retorna para o Form1 TRUE (se existir o usuario) ou FALSE
         }
+
+        private Dados MeusDados1;
+
+       
+
+        public bool InserirLaboratório(string Adm, string Status, string Prédio)
+        {
+            bool Gravação = false;
+            bool Verifica = true;
+
+            Laboratório xLab;
+            Laboratório Lab1 = new Laboratório(); //Instância da classe laboratório para pegar o código
+            string CódigoL = Lab1.CódigoLab; //pega o Código
+
+            Verifica = ValidaLab(CódigoL, Prédio); //Valida Código e o Prédio para não ter repetição.
+
+            if (Verifica == false)
+            {
+                xLab = new Laboratório();
+
+                xLab.Administrador = Adm;
+                xLab.Status = Status;
+                xLab.Prédio = Prédio;
+
+
+                MeusDados1.Inserir(xLab);
+
+                MeusDados1.GravarLaboratórios();
+                Gravação = true;
+
+            }
+
+            return Gravação;
+
+        }
+
+        public bool ValidaLab(string CódigoLab, string Prédio) //Método de validação, recebendo os parâmetros
+        {
+            bool Verifica = MeusDados1.ValidaLaboratórios(CódigoLab, Prédio); //Chamando a classe dados, e passando mais uma vez usuario e senha
+
+            return Verifica; // retorna para o Form1 TRUE (se existir o usuario) ou FALSE
+
+        }
     }
 }

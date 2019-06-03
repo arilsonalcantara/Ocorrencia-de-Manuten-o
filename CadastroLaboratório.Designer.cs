@@ -109,6 +109,7 @@ namespace Ocorrencia_de_Manutenção
             this.btnSalvarUsuario.TabIndex = 10;
             this.btnSalvarUsuario.Text = "Salvar";
             this.btnSalvarUsuario.UseVisualStyleBackColor = true;
+            this.btnSalvarUsuario.Click += new System.EventHandler(this.BtnSalvarUsuario_Click);
             // 
             // CadastroLaboratório
             // 

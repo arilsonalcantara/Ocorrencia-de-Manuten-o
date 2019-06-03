@@ -18,10 +18,10 @@ namespace Ocorrencia_de_Manutenção
 
         private ArrayList CadastroUsuarios;
 
-        public Dados()
-        {
-            CadastroUsuarios = new ArrayList();
-        }
+        //public Dados()
+        //{
+        //    CadastroUsuarios = new ArrayList(); NÃO VAMOS MAIS PRECISAR
+        //}
 
         public void Inserir(Usuarios x)
         {
@@ -104,6 +104,73 @@ namespace Ocorrencia_de_Manutenção
             }
 
             return user;
+        }
+
+        XmlSerializer Serialização2; //criando um objeto para serializar o XML
+
+        private ArrayList CadastroLab; //criando um ArrayList para (não sei se vamos precisar, mas tá aí)
+
+        //public Dados()
+        //{
+        //    CadastroLab = new ArrayList(); NÃO VAMOS MAIS PRECISAR!!!!!
+        //}
+
+        public void Inserir(Laboratório x)
+        {
+            CadastroLab.Add(x);
+        }
+
+        public void GravarLaboratórios()
+        {
+
+            TextWriter MeuWriter2 = new StreamWriter(@"Laboratório.xml");
+
+            Laboratório[] LabVetor = (Laboratório[])CadastroLab.ToArray(typeof(Laboratório));
+
+            //primeiro aparece Elemento Raiz inexistente e depois aponta para a linha abaixo. 
+
+            XmlSerializer Serialização2 = new XmlSerializer(LabVetor.GetType());// Erro. Tá dando que é inacessível. Não sei se deixei algum em private e nem percebi. 
+
+            Serialização2.Serialize(MeuWriter2, LabVetor);
+
+            MeuWriter2.Close();
+        }
+
+        public bool ValidaLaboratórios(string CódigoLab, string Prédio)
+        {
+            bool Lab = false;
+
+            try
+            {
+                XElement Z = XElement.Load(@"Laboratório.xml");
+                IEnumerable<XElement> Pesquisar = from x in Z.Elements("Laboratório")
+                                                  where (string)x.Element("CódigoLab") == CódigoLab
+                                                  select x;
+
+                foreach (XElement e in Pesquisar)
+                {
+
+                    if ((string)e.Element("CódigoLab") == CódigoLab && (string)e.Element("Prédio") == Prédio)
+                        Lab = true;
+                }
+
+
+            }
+
+            catch (FileNotFoundException e) //excessão caso o arquivo XML não exista
+            {
+                MessageBox.Show(e.Message);
+                FileStream Arquivo1 = new FileStream(@"Laboratório.xml", FileMode.OpenOrCreate);
+                Arquivo1.Close();
+            }
+
+            catch (System.Xml.XmlException e) // caso o arquivo esteja vazio
+            {
+                MessageBox.Show(e.Message);
+
+            }
+
+            return Lab;
         }
     }
 }
