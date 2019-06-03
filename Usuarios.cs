@@ -50,7 +50,7 @@ namespace Ocorrencia_de_Manutenção
             set { _Password = value; }
         }
 
-        public virtual void GeraCodigo()
+        public  Usuarios()
         {
             Codigo = Guid.NewGuid().ToString().Substring(9, 4).ToUpper(); // gera código único
             

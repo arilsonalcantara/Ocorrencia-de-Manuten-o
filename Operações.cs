@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Ocorrencia_de_Manutenção
 {
@@ -35,7 +36,8 @@ namespace Ocorrencia_de_Manutenção
 
                 MeusDados.Inserir(NovoUsuario);
 
-                MeusDados.GravarUsuarios(nome, email, senha, tipo);
+                MeusDados.GravarUsuarios();
+
                 gravação = true;
 
             }

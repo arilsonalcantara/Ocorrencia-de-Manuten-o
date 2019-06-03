@@ -81,6 +81,7 @@ namespace Ocorrencia_de_Manutenção
             {
                 
                 MessageBox.Show(TextoMsg, TituloMsg);
+
                 MenuOpção x = new MenuOpção(this,usuario);
 
                 x.Show();

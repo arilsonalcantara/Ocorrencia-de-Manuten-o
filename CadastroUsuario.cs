@@ -44,11 +44,8 @@ namespace Ocorrencia_de_Manutenção
             {
 
                 MessageBox.Show(TextoMsg, TituloMsg);
-                
-                Form1 x = new Form1();
 
-                x.Show();
-
+                this.Close();
 
             }
             else

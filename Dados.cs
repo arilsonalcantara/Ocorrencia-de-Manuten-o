@@ -13,9 +13,9 @@ namespace Ocorrencia_de_Manutenção
 {
     class Dados
     {
-        XmlSerializer Serialização; 
+        XmlSerializer Serialização;
 
-        private ArrayList CadastroUsuarios; //criando um ArrayList para (não sei se vamos precisar, mas tá aí)
+        private ArrayList CadastroUsuarios;
 
         public Dados()
         {
@@ -27,18 +27,18 @@ namespace Ocorrencia_de_Manutenção
             CadastroUsuarios.Add(x);
         }
 
-        public void GravarUsuarios(string nome, string email, string senha, string tipo) //abaixo método para escrever no XML (olhem um projeto do Bernardo de XML no SGA, está explicando cada linha abaixo)
+        public void GravarUsuarios()
         {
 
-                TextWriter MeuWriter = new StreamWriter(@"Usuarios.xml");
+            TextWriter MeuWriter = new StreamWriter(@"Usuarios.xml");
 
-                Usuarios[] UsuariosVetor = (Usuarios[])CadastroUsuarios.ToArray(typeof(Usuarios));
+            Usuarios[] UsuariosVetor = (Usuarios[])CadastroUsuarios.ToArray(typeof(Usuarios));
 
-                XmlSerializer Serialização = new XmlSerializer(UsuariosVetor.GetType());
+            XmlSerializer Serialização = new XmlSerializer(UsuariosVetor.GetType());
 
-                Serialização.Serialize(MeuWriter, UsuariosVetor);
+            Serialização.Serialize(MeuWriter, UsuariosVetor);
 
-                MeuWriter.Close();
+            MeuWriter.Close();
         }
 
         public void LerXMLUsuarios() // Façam a mesma coisa, olhem no SGA
@@ -47,17 +47,17 @@ namespace Ocorrencia_de_Manutenção
 
             FileStream Arquivo = new FileStream(@"Usuarios.xml", FileMode.Open);
 
-            Usuarios[] ListaUsuariosVetor = (Usuarios[])Serialização.Deserialize(Arquivo); 
+            Usuarios[] ListaUsuariosVetor = (Usuarios[])Serialização.Deserialize(Arquivo);
 
-            CadastroUsuarios.Clear();  
-            CadastroUsuarios.AddRange(ListaUsuariosVetor);   
+            CadastroUsuarios.Clear();
+            CadastroUsuarios.AddRange(ListaUsuariosVetor);
 
 
 
-           /* foreach (Usuarios xe in ListaUsuariosVetor) //
-            {
+            /* foreach (Usuarios xe in ListaUsuariosVetor) //
+             {
 
-            }*/
+             }*/
 
 
             Arquivo.Close();
@@ -65,23 +65,23 @@ namespace Ocorrencia_de_Manutenção
 
         public bool ValidaUsuarios(string usuario, string senha)
         {
-            bool user = false; 
+            bool user = false;
 
             try
             {
-                XElement p = XElement.Load(@"Usuarios.xml"); 
+                XElement p = XElement.Load(@"Usuarios.xml");
                 IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
                                                  where (string)e.Element("Username") == usuario
                                                  select e;
 
                 foreach (XElement e in pesquisa)
                 {
-                    
+
                     if ((string)e.Element("Username") == usuario && (string)e.Element("Password") == senha)
                         user = true;
                 }
 
-                
+
             }
 
             catch (FileNotFoundException e) //excessão caso o arquivo XML não exista
@@ -94,7 +94,7 @@ namespace Ocorrencia_de_Manutenção
             catch (System.Xml.XmlException e) // caso o arquivo esteja vazio
             {
                 MessageBox.Show(e.Message);
-                
+
             }
 
             return user;
