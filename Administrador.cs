@@ -18,9 +18,6 @@ namespace Ocorrencia_de_Manutenção
             base.GeraCodigo();
         }
 
-        public override void ListaOcorrencia()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

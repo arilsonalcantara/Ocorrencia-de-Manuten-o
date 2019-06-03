@@ -37,7 +37,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textConfirmarSenha = new System.Windows.Forms.TextBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbTipoUsuario = new System.Windows.Forms.ComboBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -47,6 +47,7 @@
             this.textNome.Name = "textNome";
             this.textNome.Size = new System.Drawing.Size(152, 20);
             this.textNome.TabIndex = 0;
+            this.textNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextNome_KeyPress);
             // 
             // textEmail
             // 
@@ -54,6 +55,7 @@
             this.textEmail.Name = "textEmail";
             this.textEmail.Size = new System.Drawing.Size(152, 20);
             this.textEmail.TabIndex = 1;
+            this.textEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextEmail_KeyPress);
             // 
             // label1
             // 
@@ -91,6 +93,7 @@
             this.textSenha.Name = "textSenha";
             this.textSenha.Size = new System.Drawing.Size(152, 20);
             this.textSenha.TabIndex = 5;
+            this.textSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextSenha_KeyPress);
             // 
             // label4
             // 
@@ -108,6 +111,7 @@
             this.textConfirmarSenha.Name = "textConfirmarSenha";
             this.textConfirmarSenha.Size = new System.Drawing.Size(152, 20);
             this.textConfirmarSenha.TabIndex = 7;
+            this.textConfirmarSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextConfirmarSenha_KeyPress);
             // 
             // btnCadastrar
             // 
@@ -124,17 +128,19 @@
             this.btnCadastrar.TabIndex = 8;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.BtnCadastrar_Click);
             // 
-            // comboBox1
+            // cbTipoUsuario
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbTipoUsuario.FormattingEnabled = true;
+            this.cbTipoUsuario.Items.AddRange(new object[] {
             "Administrador",
             "Usuário Padrão"});
-            this.comboBox1.Location = new System.Drawing.Point(384, 168);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 9;
+            this.cbTipoUsuario.Location = new System.Drawing.Point(384, 168);
+            this.cbTipoUsuario.Name = "cbTipoUsuario";
+            this.cbTipoUsuario.Size = new System.Drawing.Size(121, 21);
+            this.cbTipoUsuario.TabIndex = 9;
+            this.cbTipoUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbTipoUsuario_KeyPress);
             // 
             // lblTipo
             // 
@@ -152,7 +158,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 319);
             this.Controls.Add(this.lblTipo);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbTipoUsuario);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.textConfirmarSenha);
             this.Controls.Add(this.label4);
@@ -180,7 +186,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textConfirmarSenha;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbTipoUsuario;
         private System.Windows.Forms.Label lblTipo;
     }
 }

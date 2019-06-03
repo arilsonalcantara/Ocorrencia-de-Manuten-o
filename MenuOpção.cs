@@ -12,12 +12,14 @@ namespace Ocorrencia_de_Manutenção
 {
     public partial class MenuOpção : Form
     {
-        Form1 PainelLogin; 
+        Form1 PainelLogin;
+        
+
         public MenuOpção(Form1 F,string user) 
         {
             InitializeComponent();
 
-            PainelLogin = F; 
+            PainelLogin = F;
             lblUser.Text = user; 
 
         }

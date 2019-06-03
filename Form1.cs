@@ -12,12 +12,12 @@ namespace Ocorrencia_de_Manutenção
 {
     public partial class Form1 : Form
     {
-        Operações MinhasOperações = new Operações(); 
+        Operações MinhasOperações = new Operações();
+
         public Form1()
         {
             InitializeComponent();
 
-           
         }
 
         private void TxtUsername_TextChanged(object sender, EventArgs e) 
@@ -79,7 +79,7 @@ namespace Ocorrencia_de_Manutenção
 
             if (verifica == true)
             {
-                //abaixo é o trecho de código que chama a segunda tela, pois o usuário está correto
+                
                 MessageBox.Show(TextoMsg, TituloMsg);
                 MenuOpção x = new MenuOpção(this,usuario);
 
@@ -156,9 +156,9 @@ namespace Ocorrencia_de_Manutenção
 
         private void BtnCadastre_Click_1(object sender, EventArgs e)
         {
-            //MenuOpção x = new MenuOpção(this);
+            CadastroUsuario x = new CadastroUsuario(this);
 
-            //x.Show();
+            x.Show();
         }
     }
 }

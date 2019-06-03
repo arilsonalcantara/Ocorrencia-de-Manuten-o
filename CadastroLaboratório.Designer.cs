@@ -94,7 +94,7 @@ namespace Ocorrencia_de_Manutenção
             // txtPrédio
             // 
             this.txtPrédio.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtPrédio.Location = new System.Drawing.Point(187, 225);
+            this.txtPrédio.Location = new System.Drawing.Point(187, 163);
             this.txtPrédio.Name = "txtPrédio";
             this.txtPrédio.Size = new System.Drawing.Size(185, 20);
             this.txtPrédio.TabIndex = 9;
@@ -103,7 +103,7 @@ namespace Ocorrencia_de_Manutenção
             // btnSalvarUsuario
             // 
             this.btnSalvarUsuario.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvarUsuario.Location = new System.Drawing.Point(236, 279);
+            this.btnSalvarUsuario.Location = new System.Drawing.Point(244, 228);
             this.btnSalvarUsuario.Name = "btnSalvarUsuario";
             this.btnSalvarUsuario.Size = new System.Drawing.Size(75, 23);
             this.btnSalvarUsuario.TabIndex = 10;

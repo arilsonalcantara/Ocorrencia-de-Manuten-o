@@ -15,9 +15,33 @@ namespace Ocorrencia_de_Manutenção
             MeusDados = new Dados(); // instancia a classe dados
         }
 
-        public void InserirUsuario()
+        public bool InserirUsuario(string nome, string email, string senha, string tipo)
         {
-            MeusDados.GravarUsuarios(); //chamando método GravarUsuarios da classe Dados
+            bool gravação = false;
+            bool verifica = true;
+
+            Usuarios NovoUsuario;
+
+            verifica = ValidaUsuario(nome, senha);
+
+            if(verifica == false)
+            {
+                NovoUsuario = new Usuarios();
+
+                NovoUsuario.Username = nome;
+                NovoUsuario.Email = email;
+                NovoUsuario.Password = senha;
+                NovoUsuario.Tipo = tipo;
+
+                MeusDados.Inserir(NovoUsuario);
+
+                MeusDados.GravarUsuarios(nome, email, senha, tipo);
+                gravação = true;
+
+            }
+
+            return gravação;
+
         }
 
         public bool ValidaUsuario(string usuario, string senha) //Método de validação, recebendo os parâmetros

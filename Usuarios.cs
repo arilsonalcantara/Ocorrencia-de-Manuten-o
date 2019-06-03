@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ocorrencia_de_Manutenção
 {
-    public abstract class Usuarios
+    public class Usuarios
     {
         private string _Codigo;
 
@@ -56,7 +56,7 @@ namespace Ocorrencia_de_Manutenção
             
         }
 
-        public abstract void ListaOcorrencia();
+        
 
 
 
