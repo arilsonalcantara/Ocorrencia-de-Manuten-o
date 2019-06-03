@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
@@ -25,23 +26,28 @@ namespace Ocorrencia_de_Manutenção
         public void Inserir(Usuarios x)
         {
             CadastroUsuarios.Add(x);
+
         }
 
-        public void GravarUsuarios()
+        public void GravarUsuarios(Usuarios p)
         {
 
-            TextWriter MeuWriter = new StreamWriter(@"Usuarios.xml");
+            XElement x = new XElement("Usuarios"); // aqui ele cria um container pai com o Nome Usuarios
 
-            Usuarios[] UsuariosVetor = (Usuarios[])CadastroUsuarios.ToArray(typeof(Usuarios));
 
-            XmlSerializer Serialização = new XmlSerializer(UsuariosVetor.GetType());
+            x.Add(new XAttribute("Código", p.Codigo.ToString())); //ele está criando atributos com o nome entre aspas, e pegando a váriavel que eu passei por parametro que é do tipo Usuarios
+            x.Add(new XAttribute("Username", p.Username));
+            x.Add(new XAttribute("Email", p.Email));
+            x.Add(new XAttribute("Password", p.Password));
+            x.Add(new XAttribute("Tipo", p.Tipo));
 
-            Serialização.Serialize(MeuWriter, UsuariosVetor);
+            XElement xml = XElement.Load("Usuarios.xml"); // carrega o arquivo
 
-            MeuWriter.Close();
+            xml.Add(x); // pega tudo que está na varíavel x (como no arraylist) e adiciona ao final
+
         }
 
-        public void LerXMLUsuarios() // Façam a mesma coisa, olhem no SGA
+        public void LerXMLUsuarios() 
         {
             CadastroUsuarios.Clear();
 
@@ -71,13 +77,13 @@ namespace Ocorrencia_de_Manutenção
             {
                 XElement p = XElement.Load(@"Usuarios.xml");
                 IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
-                                                 where (string)e.Element("Username") == usuario
+                                                 where (string)e.Attribute("Username") == usuario //Troquei Element por Atribute
                                                  select e;
 
                 foreach (XElement e in pesquisa)
                 {
 
-                    if ((string)e.Element("Username") == usuario && (string)e.Element("Password") == senha)
+                    if ((string)e.Attribute("Username") == usuario && (string)e.Attribute("Password") == senha)
                         user = true;
                 }
 

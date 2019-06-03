@@ -34,9 +34,7 @@ namespace Ocorrencia_de_Manutenção
                 NovoUsuario.Password = senha;
                 NovoUsuario.Tipo = tipo;
 
-                MeusDados.Inserir(NovoUsuario);
-
-                MeusDados.GravarUsuarios();
+                MeusDados.GravarUsuarios(NovoUsuario);
 
                 gravação = true;
 
