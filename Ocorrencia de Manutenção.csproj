@@ -58,6 +58,7 @@
     <Compile Include="CadastroUsuario.Designer.cs">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="IControler.cs" />
     <Compile Include="Laboratório.cs" />
     <Compile Include="MenuOpção.cs">
       <SubType>Form</SubType>

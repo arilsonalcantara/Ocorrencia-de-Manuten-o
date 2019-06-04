@@ -3,38 +3,41 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace Ocorrencia_de_Manutenção
 {
     public partial class Form1 : Form
     {
         Operações MinhasOperações = new Operações();
-
+        Usuarios u = new Usuarios();
         public Form1()
         {
             InitializeComponent();
 
         }
 
-        private void TxtUsername_TextChanged(object sender, EventArgs e) 
+        private void TxtUsername_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text)) 
+            if (!string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text))
             {
-                btnLogin.Enabled = true; 
+                btnLogin.Enabled = true;
             }
             else
             {
-                btnLogin.Enabled = false; 
+                btnLogin.Enabled = false;
             }
         }
 
         private void TxtPassword_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text)) 
+            if (!string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text))
             {
                 btnLogin.Enabled = true;
             }
@@ -43,30 +46,30 @@ namespace Ocorrencia_de_Manutenção
                 btnLogin.Enabled = false;
             }
 
-            if (!string.IsNullOrEmpty(txtPassword.Text)) 
+            if (!string.IsNullOrEmpty(txtPassword.Text))
             {
-                txtPassword.UseSystemPasswordChar = true; 
+                txtPassword.UseSystemPasswordChar = true;
             }
             else
             {
-                btnLogin.Enabled = false; 
+                btnLogin.Enabled = false;
             }
         }
 
-        private void BtnLogin_Click(object sender, EventArgs e) 
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
             string usuario;
             string senha;
 
 
-           
 
-            string TextoMsg = "Bemv - Vindo ao RML"; 
+
+            string TextoMsg = "Bemv - Vindo ao RML";
             string TituloMsg = "Acesso Concedido";
             string TituloMsg2 = "Acesso Negado";
 
-            MessageBoxButtons BotaoMsg = MessageBoxButtons.RetryCancel; 
-            MessageBoxIcon IconeMsg = MessageBoxIcon.Exclamation; 
+            MessageBoxButtons BotaoMsg = MessageBoxButtons.RetryCancel;
+            MessageBoxIcon IconeMsg = MessageBoxIcon.Exclamation;
 
 
 
@@ -74,15 +77,15 @@ namespace Ocorrencia_de_Manutenção
             senha = txtPassword.Text;
 
 
-            
+
             bool verifica = MinhasOperações.ValidaUsuario(usuario, senha);
 
             if (verifica == true)
             {
-                
+
                 MessageBox.Show(TextoMsg, TituloMsg);
 
-                MenuOpção x = new MenuOpção(this,usuario);
+                MenuOpção x = new MenuOpção(this, usuario);
 
                 x.Show();
 
@@ -127,7 +130,7 @@ namespace Ocorrencia_de_Manutenção
 
         private void Form1_BackColorChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void BtnCadastre_MouseEnter(object sender, EventArgs e)

@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Ocorrencia_de_Manutenção
 {
-    public class Usuarios
+    public class Usuarios: IControler
     {
-        private string _Codigo;
+        private int _Codigo;
 
-        public string Codigo
+        public int Codigo
         {
             get { return _Codigo; }
             set { _Codigo = value; }
@@ -50,10 +53,18 @@ namespace Ocorrencia_de_Manutenção
             set { _Password = value; }
         }
 
+        public int CodUniq()
+        {
+            Random random = new Random();
+
+            int cod = random.Next(1, 100);
+
+            return cod;
+            
+        }
         public  Usuarios()
         {
-            Codigo = Guid.NewGuid().ToString().Substring(9, 4).ToUpper(); // gera código único
-            
+            Codigo = CodUniq();
         }
 
         

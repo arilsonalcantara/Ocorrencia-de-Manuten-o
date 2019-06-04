@@ -13,6 +13,7 @@ namespace Ocorrencia_de_Manutenção
     public partial class CadastroUsuario : Form
     {
         Operações MinhasOperações = new Operações();
+        Usuarios u = new Usuarios();
 
         Form1 ChamadaDeTela;
         public CadastroUsuario(Form1 Chamada)
@@ -20,6 +21,9 @@ namespace Ocorrencia_de_Manutenção
             InitializeComponent();
 
             ChamadaDeTela = Chamada;
+
+            txtCodUsu.Text = u.Codigo.ToString();
+
         }
 
         private void BtnCadastrar_Click(object sender, EventArgs e)
@@ -31,14 +35,14 @@ namespace Ocorrencia_de_Manutenção
             MessageBoxButtons BotaoMsg = MessageBoxButtons.RetryCancel;
             MessageBoxIcon IconeMsg = MessageBoxIcon.Exclamation;
 
-
+            int codigo = int.Parse(txtCodUsu.Text);
             string nomeusuario = textNome.Text;
             string email = textEmail.Text;
             string senha = textSenha.Text;
             string confirmasenha = textConfirmarSenha.Text;
             string tipo = cbTipoUsuario.Text;
 
-            bool retorno = MinhasOperações.InserirUsuario(nomeusuario, email, senha, tipo);
+            bool retorno = MinhasOperações.InserirUsuario(codigo,nomeusuario, email, senha, tipo);
 
             if (retorno == true)
             {
@@ -74,7 +78,7 @@ namespace Ocorrencia_de_Manutenção
 
         private void TextEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar==(char)Keys.Tab)
             {
                 textSenha.Focus();
             }
@@ -82,7 +86,7 @@ namespace Ocorrencia_de_Manutenção
 
         private void TextSenha_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
             {
                 textConfirmarSenha.Focus();
             }
@@ -90,7 +94,7 @@ namespace Ocorrencia_de_Manutenção
 
         private void TextConfirmarSenha_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
             {
 
                 if (textSenha.Text.Equals(textConfirmarSenha.Text))
@@ -117,12 +121,25 @@ namespace Ocorrencia_de_Manutenção
 
         private void CbTipoUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
             {
                 btnCadastrar.Focus();
+                btnCadastrar.PerformClick();
             }
         }
 
+        private void TxtCodUsu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+                
+            }
+        }
 
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

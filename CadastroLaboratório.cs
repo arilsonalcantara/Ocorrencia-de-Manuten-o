@@ -23,7 +23,7 @@ namespace Ocorrencia_de_Manutenção
 
         private void BtnSalvarUsuario_Click(object sender, EventArgs e)
         {
-            DialogResult Resp = new DialogResult();
+            /*DialogResult Resp = new DialogResult();
 
             string Adm; //Para capturar o que o usuário digitou.
             string Status;
@@ -60,7 +60,8 @@ namespace Ocorrencia_de_Manutenção
             {
                 MessageBox.Show("Cadastro não realizado.Tente Novamente", TituloMsg2, BotaoMsg2, IconeMsg2); // MessageBox que será exibido com o texto, botão e ícone que está declarado acima
 
-            }
+         
+            }*/
         }
     }
 }
