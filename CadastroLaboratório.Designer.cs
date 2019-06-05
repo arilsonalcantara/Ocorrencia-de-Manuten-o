@@ -30,7 +30,6 @@ namespace Ocorrencia_de_Manutenção
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtAdm = new System.Windows.Forms.TextBox();
             this.lblAdministrador = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,17 +40,8 @@ namespace Ocorrencia_de_Manutenção
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCodLab = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // txtAdm
-            // 
-            this.txtAdm.BackColor = System.Drawing.SystemColors.Window;
-            this.txtAdm.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtAdm.Location = new System.Drawing.Point(187, 70);
-            this.txtAdm.Name = "txtAdm";
-            this.txtAdm.Size = new System.Drawing.Size(114, 20);
-            this.txtAdm.TabIndex = 0;
-            this.txtAdm.Text = "Administrador";
             // 
             // lblAdministrador
             // 
@@ -160,11 +150,20 @@ namespace Ocorrencia_de_Manutenção
             this.txtCodLab.Size = new System.Drawing.Size(33, 20);
             this.txtCodLab.TabIndex = 14;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(187, 66);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 15;
+            // 
             // CadastroLaboratório
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 336);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtCodLab);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
@@ -175,8 +174,6 @@ namespace Ocorrencia_de_Manutenção
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.lblAdministrador);
-            this.Controls.Add(this.txtAdm);
-            this.Enabled = false;
             this.Name = "CadastroLaboratório";
             this.Text = "CadastroLaboratório";
             this.ResumeLayout(false);
@@ -185,8 +182,6 @@ namespace Ocorrencia_de_Manutenção
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtAdm;
         private System.Windows.Forms.Label lblAdministrador;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtStatus;
@@ -198,5 +193,6 @@ namespace Ocorrencia_de_Manutenção
         private Label label1;
         private Label label4;
         private TextBox txtCodLab;
+        private ComboBox comboBox1;
     }
 }

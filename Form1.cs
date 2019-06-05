@@ -78,7 +78,7 @@ namespace Ocorrencia_de_Manutenção
 
 
 
-            bool verifica = MinhasOperações.ValidaUsuario(usuario, senha);
+            bool verifica = MinhasOperações.ValidaLogin(usuario,senha);
 
             if (verifica == true)
             {

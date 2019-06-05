@@ -33,7 +33,7 @@ namespace Ocorrencia_de_Manutenção
             MessageBoxIcon IconeMsg = MessageBoxIcon.Exclamation;
 
             int codigo = int.Parse(txtCodLab.Text);
-            string adm = txtAdm.Text;
+            string adm = comboBox1.Text;
             string status = txtStatus.Text;
             int predio = int.Parse(txtPrédio.Text);
             
@@ -61,5 +61,7 @@ namespace Ocorrencia_de_Manutenção
 
             //}
         }
+
+        
     }
 }

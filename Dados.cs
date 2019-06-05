@@ -121,6 +121,44 @@ namespace Ocorrencia_de_Manutenção
             return user;
         }
 
+        public bool ValidaLogin(string usuario, string senha)
+        {
+            bool user = false;
+
+            try
+            {
+                XElement p = XElement.Load(@"Usuarios.xml");
+                IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
+                                                 where (string)e.Attribute("Username") == usuario
+                                                 select e;
+
+                foreach (XElement e in pesquisa)
+                {
+
+                    if ((string)e.Attribute("Username") == usuario && (string)e.Attribute("Password") == senha)
+                        user = true;
+                }
+
+
+            }
+
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message);
+                FileStream Arquivo = new FileStream(@"Usuarios.xml", FileMode.OpenOrCreate);
+                Arquivo.Close();
+            }
+
+            catch (System.Xml.XmlException e)
+            {
+                MessageBox.Show(e.Message);
+
+            }
+
+            return user;
+        }
+
+
         public bool ValidaLaboratórios(string CódigoLab, string Prédio)
         {
             bool Lab = false;
@@ -156,5 +194,12 @@ namespace Ocorrencia_de_Manutenção
 
             return Lab;
         }
+
+        //public IEnumerable DataSource()
+        //{
+            
+
+        //    return ds;
+        //}
     }
 }

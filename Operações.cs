@@ -53,5 +53,17 @@ namespace Ocorrencia_de_Manutenção
 
             return verifica; 
         }
+
+        public bool ValidaLogin(string usuario, string senha)
+        {
+            bool verifica = MeusDados.ValidaLogin(usuario,senha);
+
+            return verifica;
+        }
+
+        //public void DataSource()
+        //{
+        //    MeusDados.DataSource();
+        //}
     }
 }
