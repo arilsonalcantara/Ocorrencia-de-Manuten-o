@@ -16,17 +16,17 @@ namespace Ocorrencia_de_Manutenção
     {
         XmlSerializer Serialização;
 
-        public ArrayList CadastroUsuarios;
+        public List<Usuarios> CadastroUsuarios;
 
         public Dados()
         {
-            CadastroUsuarios = new ArrayList();
+            CadastroUsuarios = new List<Usuarios>();
         }
 
         public void Inserir(Usuarios x)
         {
             CadastroUsuarios.Add(x);
-
+            
         }
 
         public void GravarUsuarios(Usuarios p)
@@ -35,7 +35,7 @@ namespace Ocorrencia_de_Manutenção
             {
                 XElement x = new XElement("Usuarios"); 
 
-                x.Add(new XAttribute("Código", p.Codigo.ToString())); 
+                x.Add(new XAttribute("Codigo", p.Codigo.ToString())); 
                 x.Add(new XAttribute("Username", p.Username));
                 x.Add(new XAttribute("Email", p.Email));
                 x.Add(new XAttribute("Password", p.Password));
@@ -195,11 +195,41 @@ namespace Ocorrencia_de_Manutenção
             return Lab;
         }
 
-        //public IEnumerable DataSource()
-        //{
-            
+        public int PesquisaCodigoAdm(string adm)
+        {
+            int codadm = 0;
 
-        //    return ds;
-        //}
+            try
+            {
+                XElement p = XElement.Load(@"Usuarios.xml");
+                IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
+                                                 where (string)e.Attribute("Username") == adm
+                                                 select e;
+
+                foreach (XElement e in pesquisa)
+                {
+                    codadm = int.Parse(e.Attribute("Codigo").Value);
+                  
+                }
+
+
+            }
+
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message);
+                FileStream Arquivo = new FileStream(@"Usuarios.xml", FileMode.OpenOrCreate);
+                Arquivo.Close();
+            }
+
+            catch (System.Xml.XmlException e)
+            {
+                MessageBox.Show(e.Message);
+
+            }
+
+            return codadm;
+        }
+
     }
 }

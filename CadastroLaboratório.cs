@@ -7,19 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Ocorrencia_de_Manutenção
 {
     public partial class CadastroLaboratório : Form
     {
         Operações MinhasOperações = new Operações();
+
         Laboratório l = new Laboratório();
 
+        Usuarios u = new Usuarios();
+
         MenuOpção OpçãoCadastro;
+
+        
+
         public CadastroLaboratório(MenuOpção opc)
         {
             InitializeComponent();
+
             OpçãoCadastro = opc;
+
             txtCodLab.Text = l.CodigoLab.ToString();
         }
 
@@ -34,9 +43,10 @@ namespace Ocorrencia_de_Manutenção
 
             int codigo = int.Parse(txtCodLab.Text);
             string adm = comboBox1.Text;
+            int codigoamd = int.Parse(txtCodAdm.Text); 
             string status = txtStatus.Text;
             int predio = int.Parse(txtPrédio.Text);
-            
+
 
             //bool retorno = MinhasOperações.InserirUsuario(codigo, nomeusuario, email, senha, tipo);
 
@@ -62,6 +72,18 @@ namespace Ocorrencia_de_Manutenção
             //}
         }
 
-        
+        private void CadastroLaboratório_Load(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+            foreach (Usuarios user in u.ListarUsuarios())
+            {
+                comboBox1.Items.Add(user);
+            }
+        }
+
+        private void ComboBox1_TextChanged(object sender, EventArgs e)
+        {
+            txtCodAdm.Text = MinhasOperações.PesquisaCodigoAdm(comboBox1.Text).ToString();
+        }
     }
 }

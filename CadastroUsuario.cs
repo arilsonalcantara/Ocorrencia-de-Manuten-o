@@ -141,5 +141,21 @@ namespace Ocorrencia_de_Manutenção
         {
 
         }
+
+        private void TextSenha_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textSenha.Text))
+            {
+                textSenha.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void TextConfirmarSenha_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textConfirmarSenha.Text))
+            {
+                textConfirmarSenha.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

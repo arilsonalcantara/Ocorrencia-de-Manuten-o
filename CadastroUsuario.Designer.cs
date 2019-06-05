@@ -122,6 +122,7 @@
             this.textSenha.Name = "textSenha";
             this.textSenha.Size = new System.Drawing.Size(115, 20);
             this.textSenha.TabIndex = 5;
+            this.textSenha.TextChanged += new System.EventHandler(this.TextSenha_TextChanged);
             this.textSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextSenha_KeyPress);
             // 
             // label4
@@ -143,6 +144,7 @@
             this.textConfirmarSenha.Name = "textConfirmarSenha";
             this.textConfirmarSenha.Size = new System.Drawing.Size(115, 20);
             this.textConfirmarSenha.TabIndex = 7;
+            this.textConfirmarSenha.TextChanged += new System.EventHandler(this.TextConfirmarSenha_TextChanged);
             this.textConfirmarSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextConfirmarSenha_KeyPress);
             // 
             // btnCadastrar

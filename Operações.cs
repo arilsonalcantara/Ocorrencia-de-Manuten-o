@@ -36,7 +36,7 @@ namespace Ocorrencia_de_Manutenção
                 NovoUsuario.Tipo = tipo;
 
 
-                //MeusDados.Inserir(NovoUsuario);
+                MeusDados.Inserir(NovoUsuario);
                 MeusDados.GravarUsuarios(NovoUsuario);
 
                 gravação = true;
@@ -61,9 +61,14 @@ namespace Ocorrencia_de_Manutenção
             return verifica;
         }
 
-        //public void DataSource()
-        //{
-        //    MeusDados.DataSource();
-        //}
+        public int PesquisaCodigoAdm(string adm)
+        {
+            int codadm;
+
+            codadm = MeusDados.PesquisaCodigoAdm(adm);
+
+            return codadm;
+
+        }
     }
 }

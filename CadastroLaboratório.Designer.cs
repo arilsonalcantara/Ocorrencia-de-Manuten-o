@@ -36,7 +36,7 @@ namespace Ocorrencia_de_Manutenção
             this.lblPrédio = new System.Windows.Forms.Label();
             this.txtPrédio = new System.Windows.Forms.TextBox();
             this.btnSalvarUsuario = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCodAdm = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCodLab = new System.Windows.Forms.TextBox();
@@ -105,15 +105,16 @@ namespace Ocorrencia_de_Manutenção
             this.btnSalvarUsuario.UseVisualStyleBackColor = true;
             this.btnSalvarUsuario.Click += new System.EventHandler(this.BtnSalvarUsuario_Click);
             // 
-            // textBox1
+            // txtCodAdm
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Enabled = false;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(361, 68);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(33, 20);
-            this.textBox1.TabIndex = 11;
+            this.txtCodAdm.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCodAdm.Enabled = false;
+            this.txtCodAdm.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtCodAdm.Location = new System.Drawing.Point(361, 68);
+            this.txtCodAdm.Name = "txtCodAdm";
+            this.txtCodAdm.Size = new System.Drawing.Size(33, 20);
+            this.txtCodAdm.TabIndex = 11;
+            this.txtCodAdm.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -149,14 +150,18 @@ namespace Ocorrencia_de_Manutenção
             this.txtCodLab.Name = "txtCodLab";
             this.txtCodLab.Size = new System.Drawing.Size(33, 20);
             this.txtCodLab.TabIndex = 14;
+            this.txtCodLab.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // comboBox1
             // 
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(187, 66);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 15;
+            this.comboBox1.Text = "[Selecione]";
+            this.comboBox1.TextChanged += new System.EventHandler(this.ComboBox1_TextChanged);
             // 
             // CadastroLaboratório
             // 
@@ -167,7 +172,7 @@ namespace Ocorrencia_de_Manutenção
             this.Controls.Add(this.txtCodLab);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtCodAdm);
             this.Controls.Add(this.btnSalvarUsuario);
             this.Controls.Add(this.txtPrédio);
             this.Controls.Add(this.lblPrédio);
@@ -176,6 +181,7 @@ namespace Ocorrencia_de_Manutenção
             this.Controls.Add(this.lblAdministrador);
             this.Name = "CadastroLaboratório";
             this.Text = "CadastroLaboratório";
+            this.Load += new System.EventHandler(this.CadastroLaboratório_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,7 +195,7 @@ namespace Ocorrencia_de_Manutenção
         private System.Windows.Forms.Label lblPrédio;
         private System.Windows.Forms.TextBox txtPrédio;
         private Button btnSalvarUsuario;
-        private TextBox textBox1;
+        private TextBox txtCodAdm;
         private Label label1;
         private Label label4;
         private TextBox txtCodLab;

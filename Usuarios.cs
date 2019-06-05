@@ -67,6 +67,28 @@ namespace Ocorrencia_de_Manutenção
             Codigo = CodUniq();
         }
 
+        public override string ToString()
+        {
+            return this.Username;
+        }
+
+        public  List<Usuarios> ListarUsuarios()
+        {
+            List<Usuarios> usuarios = new List<Usuarios>();
+            XElement xml = XElement.Load("Usuarios.xml");
+            foreach (XElement x in xml.Elements())
+            {
+                Usuarios u = new Usuarios()
+                {
+                    Username = x.Attribute("Username").Value
+                };
+                usuarios.Add(u);
+            }
+            return usuarios;
+        }
+
+
+        
         
 
 
