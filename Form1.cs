@@ -16,7 +16,9 @@ namespace Ocorrencia_de_Manutenção
     public partial class Form1 : Form
     {
         Operações MinhasOperações = new Operações();
+
         Usuarios u = new Usuarios();
+
         public Form1()
         {
             InitializeComponent();
@@ -60,7 +62,6 @@ namespace Ocorrencia_de_Manutenção
         {
             string usuario;
             string senha;
-
 
 
 

@@ -13,6 +13,8 @@ namespace Ocorrencia_de_Manutenção
     public partial class CadastroUsuario : Form
     {
         Operações MinhasOperações = new Operações();
+
+
         Usuarios u = new Usuarios();
 
         Form1 ChamadaDeTela;

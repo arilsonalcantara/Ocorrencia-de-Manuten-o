@@ -104,6 +104,7 @@
             this.lblUser.Size = new System.Drawing.Size(89, 19);
             this.lblUser.TabIndex = 3;
             this.lblUser.Text = "Username";
+            this.lblUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button4
             // 
@@ -130,6 +131,7 @@
             this.label1.Size = new System.Drawing.Size(121, 24);
             this.label1.TabIndex = 6;
             this.label1.Text = "Bem Vindo";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MenuOpção
             // 
