@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ocorrencia_de_Manutenção
 {
-    class Laboratório
+    public class Laboratório: IControler
     {
-        private string _Adiministrador; // Pensei que cada laboratório tem um responsável, logo um administrador.
+        private string _Adiministrador; 
 
         public string Administrador
         {
@@ -16,17 +16,13 @@ namespace Ocorrencia_de_Manutenção
             set { _Adiministrador = value; }
         }
 
-        private string _CódigoLab; // Cada laboratório possui um identificador que é o código.
+        private int _CodigoLab; 
 
-        public string CódigoLab
+        public int CodigoLab
         {
-            get { return _CódigoLab; }
-            set { _CódigoLab = value; }
+            get { return _CodigoLab; }
+            set { _CodigoLab = value; }
         }
-
-        // Pensei que isso seria útil para a listagem, 
-        //porque ele pode querer listar os laboratórios e saber qual tá disponíivel e qual tá em manutenção.
-        // Ou modificar o status do laboratório depois. Podemos criar esse botão no Menu Principal
 
         private string _Status;
 
@@ -36,17 +32,36 @@ namespace Ocorrencia_de_Manutenção
             set { _Status = value; }
         }
 
-        // Mudança para prédio. Para identificar o local do labortório
 
-        private string _Prédio;
+        private int _Prédio;
 
-        public string Prédio
+        public int Prédio
         {
             get { return _Prédio; }
             set { _Prédio = value; }
         }
 
-        //Pensei em colocar código do usuário também lá na tela.
+        private int _CodAdm;
 
+        public int CodAdm
+        {
+            get { return _CodAdm; }
+            set { _CodAdm = value; }
+        }
+
+
+        public int CodUniq()
+        {
+            Random random = new Random();
+
+            int cod = random.Next(1, 100);
+
+            return cod;
+
+        }
+        public Laboratório()
+        {
+            CodigoLab = CodUniq();
+        }
     }
 }

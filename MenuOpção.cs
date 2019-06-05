@@ -29,7 +29,7 @@ namespace Ocorrencia_de_Manutenção
 
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void Button2_Click_1(object sender, EventArgs e)
         {
             CadastroLaboratório x = new CadastroLaboratório(this);
 

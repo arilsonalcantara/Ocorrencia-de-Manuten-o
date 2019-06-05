@@ -48,6 +48,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.radioMasculino = new System.Windows.Forms.RadioButton();
+            this.radioFeminino = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -128,7 +130,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(11, 172);
+            this.label4.Location = new System.Drawing.Point(12, 198);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 13);
             this.label4.TabIndex = 6;
@@ -137,7 +139,7 @@
             // textConfirmarSenha
             // 
             this.textConfirmarSenha.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textConfirmarSenha.Location = new System.Drawing.Point(160, 169);
+            this.textConfirmarSenha.Location = new System.Drawing.Point(160, 196);
             this.textConfirmarSenha.Name = "textConfirmarSenha";
             this.textConfirmarSenha.Size = new System.Drawing.Size(115, 20);
             this.textConfirmarSenha.TabIndex = 7;
@@ -153,7 +155,7 @@
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold);
             this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnCadastrar.Location = new System.Drawing.Point(230, 233);
+            this.btnCadastrar.Location = new System.Drawing.Point(238, 266);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(104, 29);
             this.btnCadastrar.TabIndex = 9;
@@ -193,7 +195,7 @@
             this.txtCodUsu.Location = new System.Drawing.Point(463, 32);
             this.txtCodUsu.Name = "txtCodUsu";
             this.txtCodUsu.Size = new System.Drawing.Size(27, 20);
-            this.txtCodUsu.TabIndex = 11;
+            this.txtCodUsu.TabIndex = 12;
             this.txtCodUsu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCodUsu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodUsu_KeyPress);
             // 
@@ -260,7 +262,7 @@
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(136, 169);
+            this.pictureBox4.Location = new System.Drawing.Point(136, 196);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(27, 20);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -297,11 +299,43 @@
             this.pictureBox6.TabIndex = 18;
             this.pictureBox6.TabStop = false;
             // 
+            // radioMasculino
+            // 
+            this.radioMasculino.AutoSize = true;
+            this.radioMasculino.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.radioMasculino.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.radioMasculino.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioMasculino.ForeColor = System.Drawing.Color.Blue;
+            this.radioMasculino.Location = new System.Drawing.Point(411, 176);
+            this.radioMasculino.Name = "radioMasculino";
+            this.radioMasculino.Size = new System.Drawing.Size(79, 17);
+            this.radioMasculino.TabIndex = 10;
+            this.radioMasculino.TabStop = true;
+            this.radioMasculino.Text = "Masculino";
+            this.radioMasculino.UseVisualStyleBackColor = false;
+            // 
+            // radioFeminino
+            // 
+            this.radioFeminino.AutoSize = true;
+            this.radioFeminino.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.radioFeminino.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.radioFeminino.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioFeminino.ForeColor = System.Drawing.Color.Fuchsia;
+            this.radioFeminino.Location = new System.Drawing.Point(411, 199);
+            this.radioFeminino.Name = "radioFeminino";
+            this.radioFeminino.Size = new System.Drawing.Size(75, 17);
+            this.radioFeminino.TabIndex = 11;
+            this.radioFeminino.TabStop = true;
+            this.radioFeminino.Text = "Feminino";
+            this.radioFeminino.UseVisualStyleBackColor = false;
+            // 
             // CadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 319);
+            this.Controls.Add(this.radioFeminino);
+            this.Controls.Add(this.radioMasculino);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
@@ -355,5 +389,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.RadioButton radioMasculino;
+        private System.Windows.Forms.RadioButton radioFeminino;
     }
 }
