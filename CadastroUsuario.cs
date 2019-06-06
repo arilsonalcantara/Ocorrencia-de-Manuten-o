@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -48,6 +49,33 @@ namespace Ocorrencia_de_Manutenção
 
             if (retorno == true)
             {
+
+                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential("contato.arilson03@gmail.com", "entremundos0302");
+                MailMessage mail = new MailMessage();
+                mail.Sender = new System.Net.Mail.MailAddress("contato.arilson03@gmail.com", "Arilson Alcântara");
+                mail.From = new MailAddress("contato.arilson03@gmail.com", "RML");
+                mail.To.Add(new MailAddress(email, nomeusuario));
+                mail.Subject = "Contato";
+                mail.Body = "Usuario cadastrado com sucesso! Usuario: "+nomeusuario+" Senha: "+senha;
+                mail.IsBodyHtml = true;
+                mail.Priority = MailPriority.High;
+                //try
+                //{
+                smtp.Send(mail);
+                //}
+                //catch (InvalidOperationException e)
+                //{
+                //    //trata erro
+                //}
+                //finally
+                //{
+                //    mail = null;
+                //}
 
                 MessageBox.Show(TextoMsg, TituloMsg);
 
