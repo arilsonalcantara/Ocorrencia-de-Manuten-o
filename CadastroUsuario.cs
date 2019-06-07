@@ -45,37 +45,42 @@ namespace Ocorrencia_de_Manutenção
             string confirmasenha = textConfirmarSenha.Text;
             string tipo = cbTipoUsuario.Text;
 
-            bool retorno = MinhasOperações.InserirUsuario(codigo,nomeusuario, email, senha, tipo);
+            bool retorno = MinhasOperações.InserirUsuario(codigo, nomeusuario, email, senha, tipo);
 
             if (retorno == true)
             {
 
+
                 System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
+
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential("contato.arilson03@gmail.com", "entremundos0302");
+                smtp.Credentials = new System.Net.NetworkCredential("registroocorrencialab@gmail.com", "R@inh@337890");
+
                 MailMessage mail = new MailMessage();
-                mail.Sender = new System.Net.Mail.MailAddress("contato.arilson03@gmail.com", "Arilson Alcântara");
-                mail.From = new MailAddress("contato.arilson03@gmail.com", "RML");
+                mail.Sender = new System.Net.Mail.MailAddress("registroocorrencialab@gmail.com", "Gestão de Laboratório de Informática");
+                mail.From = new MailAddress("registroocorrencialab@gmail.com", "GLI");
                 mail.To.Add(new MailAddress(email, nomeusuario));
+
                 mail.Subject = "Contato";
-                mail.Body = "Usuario cadastrado com sucesso! Usuario: "+nomeusuario+" Senha: "+senha;
+                mail.Body = "Usuario cadastrado com sucesso! Usuario: \n" + nomeusuario + "\n Senha: " + senha;
                 mail.IsBodyHtml = true;
                 mail.Priority = MailPriority.High;
-                //try
-                //{
-                smtp.Send(mail);
-                //}
-                //catch (InvalidOperationException e)
-                //{
-                //    //trata erro
-                //}
-                //finally
-                //{
-                //    mail = null;
-                //}
+
+                try
+                {
+                    smtp.Send(mail);
+                }
+                catch (InvalidOperationException erro)
+                {
+                    MessageBox.Show(erro.Message);
+                }
+                finally
+                {
+                    mail = null;
+                }
 
                 MessageBox.Show(TextoMsg, TituloMsg);
 
@@ -108,7 +113,7 @@ namespace Ocorrencia_de_Manutenção
 
         private void TextEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter || e.KeyChar==(char)Keys.Tab)
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
             {
                 textSenha.Focus();
             }
@@ -163,7 +168,7 @@ namespace Ocorrencia_de_Manutenção
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
             {
                 e.Handled = true;
-                
+
             }
         }
 
