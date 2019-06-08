@@ -39,7 +39,7 @@ namespace Ocorrencia_de_Manutenção
                 NovoUsuario.Tipo = tipo;
 
 
-                MeusDados.Inserir(NovoUsuario);
+                MeusDados.InserirUsuario(NovoUsuario);
                 MeusDados.GravarUsuarios(NovoUsuario);
 
                 gravação = true;
@@ -99,6 +99,11 @@ namespace Ocorrencia_de_Manutenção
             dgvDados.Columns[6].Name = "Laboratório";
             dgvDados.Columns[7].Name = "Usuário";
 
+            dgvDados.DataSource = null;
+
+            dgvDados.DataSource = MeusDados.ListaOcorrencia();
+
+            dgvDados.ClearSelection();
 
         }
 

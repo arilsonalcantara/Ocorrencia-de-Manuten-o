@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ocorrencia_de_Manutenção
 {
-    class Ocorrencia:IControler
+    public class Ocorrencia:IControler
     {
 
         private int _ID;

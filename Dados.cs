@@ -15,28 +15,36 @@ namespace Ocorrencia_de_Manutenção
 {
     public class Dados
     {
-        XmlSerializer Serialização;
 
         public List<Usuarios> CadastroUsuarios;
+        public List<Ocorrencia> CadOcorrencias;
+
 
         public Dados()
         {
             CadastroUsuarios = new List<Usuarios>();
+            CadOcorrencias = new List<Ocorrencia>();
         }
 
-        public void Inserir(Usuarios x)
+        public void InserirUsuario(Usuarios x)
         {
             CadastroUsuarios.Add(x);
-            
+
+        }
+
+        public void InserirOcorrencia(Ocorrencia x)
+        {
+            CadOcorrencias.Add(x);
+
         }
 
         public void GravarUsuarios(Usuarios p)
         {
             try
             {
-                XElement x = new XElement("Usuarios"); 
+                XElement x = new XElement("Usuarios");
 
-                x.Add(new XAttribute("Codigo", p.Codigo.ToString())); 
+                x.Add(new XAttribute("Codigo", p.Codigo.ToString()));
                 x.Add(new XAttribute("Username", p.Username));
                 x.Add(new XAttribute("Email", p.Email));
                 x.Add(new XAttribute("Password", p.Password));
@@ -48,14 +56,14 @@ namespace Ocorrencia_de_Manutenção
 
                 xml.Save("Usuarios.xml");
             }
-            catch (FileNotFoundException e) 
+            catch (FileNotFoundException e)
             {
                 MessageBox.Show(e.Message);
                 FileStream Arquivo = new FileStream(@"Usuarios.xml", FileMode.OpenOrCreate);
                 Arquivo.Close();
             }
 
-            catch (System.Xml.XmlException e) 
+            catch (System.Xml.XmlException e)
             {
                 MessageBox.Show(e.Message);
 
@@ -63,27 +71,7 @@ namespace Ocorrencia_de_Manutenção
 
         }
 
-        public void LerXMLUsuarios()
-        {
-            CadastroUsuarios.Clear();
 
-            FileStream Arquivo = new FileStream(@"Usuarios.xml", FileMode.Open);
-
-            Usuarios[] ListaUsuariosVetor = (Usuarios[])Serialização.Deserialize(Arquivo);
-
-            CadastroUsuarios.Clear();
-            CadastroUsuarios.AddRange(ListaUsuariosVetor);
-
-
-
-            /* foreach (Usuarios xe in ListaUsuariosVetor) //
-             {
-
-             }*/
-
-
-            Arquivo.Close();
-        }
 
         public bool ValidaUsuarios(string usuario, int codigo)
         {
@@ -93,7 +81,7 @@ namespace Ocorrencia_de_Manutenção
             {
                 XElement p = XElement.Load(@"Usuarios.xml");
                 IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
-                                                 where (string)e.Attribute("Username") == usuario 
+                                                 where (string)e.Attribute("Username") == usuario
                                                  select e;
 
                 foreach (XElement e in pesquisa)
@@ -106,14 +94,14 @@ namespace Ocorrencia_de_Manutenção
 
             }
 
-            catch (FileNotFoundException e) 
+            catch (FileNotFoundException e)
             {
                 MessageBox.Show(e.Message);
                 FileStream Arquivo = new FileStream(@"Usuarios.xml", FileMode.OpenOrCreate);
                 Arquivo.Close();
             }
 
-            catch (System.Xml.XmlException e) 
+            catch (System.Xml.XmlException e)
             {
                 MessageBox.Show(e.Message);
 
@@ -210,7 +198,7 @@ namespace Ocorrencia_de_Manutenção
                 foreach (XElement e in pesquisa)
                 {
                     codadm = int.Parse(e.Attribute("Codigo").Value);
-                  
+
                 }
 
 
@@ -268,7 +256,7 @@ namespace Ocorrencia_de_Manutenção
 
         public string VerificaTipo(string user)
         {
-            string tipo="";
+            string tipo = "";
 
 
 
@@ -285,6 +273,28 @@ namespace Ocorrencia_de_Manutenção
 
 
             return tipo;
+        }
+
+        public  List<Ocorrencia> ListaOcorrencia()
+        {
+            List<Ocorrencia> ocorrencia = new List<Ocorrencia>();
+            XElement xml = XElement.Load("Ocorrencias.xml");
+            foreach (XElement x in xml.Elements())
+            {
+                Ocorrencia o = new Ocorrencia()
+                {
+                    ID = int.Parse(x.Attribute("Id").Value),
+                    Descriçao = x.Attribute("Descriçao").Value,
+                    Prioridade = x.Attribute("Prioridade").Value,
+                    Status = x.Attribute("Status").Value,
+                    DataUpdate = x.Attribute("DataUpdate").Value,
+                    DateInicio = x.Attribute("DateInicio").Value,
+                    Laboratorio = int.Parse(x.Attribute("Laboratorio").Value),
+                    Usuario = x.Attribute("Usuario").Value
+                };
+                ocorrencia.Add(o);
+            }
+            return ocorrencia;
         }
 
     }
