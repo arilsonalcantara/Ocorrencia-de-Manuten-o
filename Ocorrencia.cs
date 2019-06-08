@@ -57,6 +57,15 @@ namespace Ocorrencia_de_Manutenção
             set { _Laboratorio = value; }
         }
 
+        private string _Predio;
+
+        public string Predio
+        {
+            get { return _Predio; }
+            set { _Predio = value; }
+        }
+
+
         private string _Usuario;
 
         public string Usuario
@@ -81,6 +90,11 @@ namespace Ocorrencia_de_Manutenção
             int cod = random.Next(1, 100);
 
             return cod;
+        }
+
+        public Ocorrencia()
+        {
+            ID = CodUniq();
         }
     }
 }

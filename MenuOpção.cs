@@ -16,7 +16,7 @@ namespace Ocorrencia_de_Manutenção
 
         string verificatipo;
 
-        public MenuOpção(Form1 F,string user, string tipo) 
+        public MenuOpção(Form1 F, string user, string tipo)
         {
             InitializeComponent();
 
@@ -50,6 +50,7 @@ namespace Ocorrencia_de_Manutenção
                 btnLaboratoriosSistemas.Visible = true;
                 btnUsuariosSistemas.Visible = true;
                 button2.Visible = true;
+                
             }
         }
 
@@ -59,5 +60,7 @@ namespace Ocorrencia_de_Manutenção
 
             x.Show();
         }
+
+        
     }
 }

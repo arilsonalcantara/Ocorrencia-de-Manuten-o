@@ -51,6 +51,84 @@ namespace Ocorrencia_de_Manutenção
 
         }
 
+
+        public bool InserirLab(int codigo, string adm, int codadm, int ocorrencia, int predio)
+        {
+            bool gravação = false;
+            bool verifica = true;
+
+            Laboratório NovoLaboratorio;
+
+            verifica = ValidaLab(codigo, predio);
+
+            if (verifica == false)
+            {
+                NovoLaboratorio = new Laboratório();
+
+                NovoLaboratorio.CodigoLab = codigo;
+                NovoLaboratorio.Administrador = adm;
+                NovoLaboratorio.CodAdm = codigo;
+                NovoLaboratorio.Ocorrencias = ocorrencia;
+                NovoLaboratorio.Prédio = predio;
+
+
+                MeusDados.InserirLab(NovoLaboratorio);
+                MeusDados.GravarLab(NovoLaboratorio);
+
+                gravação = true;
+
+            }
+
+            return gravação;
+
+        }
+
+
+        public bool ValidaLab(int codigo, int predio)
+        {
+            bool lab = false;
+
+            try
+            {
+                XElement p = XElement.Load(@"Laboratorio.xml");
+                IEnumerable<XElement> pesquisa = from e in p.Elements("Laboratorios")
+                                                 where (int)e.Attribute("Predio") == predio 
+                                                 select e;
+
+                foreach (XElement e in pesquisa)
+                {
+
+                    if ((int)e.Attribute("Laboratorio") == codigo && (int)e.Attribute("Predio") == predio)
+                        lab = true;
+                }
+
+
+            }
+
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message);
+                FileStream Arquivo = new FileStream(@"Laboratorio.xml", FileMode.OpenOrCreate);
+                Arquivo.Close();
+            }
+
+            catch (System.Xml.XmlException e)
+            {
+                MessageBox.Show(e.Message);
+
+            }
+
+            return lab;
+        }
+
+
+
+
+        public void InserirOcorrencia(Ocorrencia x)
+        {
+            MeusDados.InserirOcorrencia(x);
+        }
+
         public bool ValidaUsuario(string usuario, int codigo)
         {
             //bool verifica = MeusDados.ValidaUsuarios(usuario,codigo); 
@@ -176,10 +254,12 @@ namespace Ocorrencia_de_Manutenção
 
         }
 
+
         public void EnviaEmail(string email, string nomeusuario, string senha)
         {
             MeusDados.EnviaEmail(email,nomeusuario,senha);
         }
+
        public string VerificaTipo(string user)
         {
             //string tipo = MeusDados.VerificaTipo(user);
@@ -203,27 +283,7 @@ namespace Ocorrencia_de_Manutenção
             return tipo;
         }
 
-        public void CarregaGrid(DataGridView dgvDados)
-        {
-
-            dgvDados.ColumnCount = 8;
-
-            dgvDados.Columns[0].Name = "Id";
-            dgvDados.Columns[1].Name = "Descrição";
-            dgvDados.Columns[2].Name = "Prioridade";
-            dgvDados.Columns[3].Name = "Status";
-            dgvDados.Columns[4].Name = "Última Modificação";
-            dgvDados.Columns[5].Name = "Data de Abertura";
-            dgvDados.Columns[6].Name = "Laboratório";
-            dgvDados.Columns[7].Name = "Usuário";
-
-            dgvDados.DataSource = null;
-
-            dgvDados.DataSource = MeusDados.ListaOcorrencia();
-
-            dgvDados.ClearSelection();
-
-        }
+        
 
     }
 }

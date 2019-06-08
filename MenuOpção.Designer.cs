@@ -46,9 +46,9 @@
             this.btnVisualizaOcorrencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVisualizaOcorrencias.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVisualizaOcorrencias.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnVisualizaOcorrencias.Location = new System.Drawing.Point(117, 68);
+            this.btnVisualizaOcorrencias.Location = new System.Drawing.Point(96, 68);
             this.btnVisualizaOcorrencias.Name = "btnVisualizaOcorrencias";
-            this.btnVisualizaOcorrencias.Size = new System.Drawing.Size(161, 34);
+            this.btnVisualizaOcorrencias.Size = new System.Drawing.Size(201, 34);
             this.btnVisualizaOcorrencias.TabIndex = 0;
             this.btnVisualizaOcorrencias.Text = "Visualizar Ocorrências";
             this.btnVisualizaOcorrencias.UseVisualStyleBackColor = false;
@@ -76,9 +76,9 @@
             this.btnUsuariosSistemas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsuariosSistemas.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuariosSistemas.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnUsuariosSistemas.Location = new System.Drawing.Point(117, 196);
+            this.btnUsuariosSistemas.Location = new System.Drawing.Point(96, 191);
             this.btnUsuariosSistemas.Name = "btnUsuariosSistemas";
-            this.btnUsuariosSistemas.Size = new System.Drawing.Size(161, 33);
+            this.btnUsuariosSistemas.Size = new System.Drawing.Size(201, 38);
             this.btnUsuariosSistemas.TabIndex = 2;
             this.btnUsuariosSistemas.Text = "Usuarios do Sistema";
             this.btnUsuariosSistemas.UseVisualStyleBackColor = true;

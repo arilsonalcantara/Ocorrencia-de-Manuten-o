@@ -175,6 +175,7 @@
             this.cbTipoUsuario.Name = "cbTipoUsuario";
             this.cbTipoUsuario.Size = new System.Drawing.Size(121, 21);
             this.cbTipoUsuario.TabIndex = 8;
+            this.cbTipoUsuario.Visible = false;
             this.cbTipoUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbTipoUsuario_KeyPress);
             // 
             // lblTipo
@@ -188,6 +189,7 @@
             this.lblTipo.Size = new System.Drawing.Size(96, 13);
             this.lblTipo.TabIndex = 10;
             this.lblTipo.Text = "Tipo do Usuário";
+            this.lblTipo.Visible = false;
             // 
             // txtCodUsu
             // 
@@ -325,6 +327,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "CadastroUsuario";
             this.Text = "CadastroUsuario";
+            this.Load += new System.EventHandler(this.CadastroUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

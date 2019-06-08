@@ -26,6 +26,7 @@ namespace Ocorrencia_de_Manutenção
             ChamadaDeTela = Chamada;
 
             txtCodUsu.Text = u.Codigo.ToString();
+            cbTipoUsuario.Text = u.Tipo.ToString();
 
         }
 
@@ -161,6 +162,11 @@ namespace Ocorrencia_de_Manutenção
             {
                 textConfirmarSenha.UseSystemPasswordChar = true;
             }
+        }
+
+        private void CadastroUsuario_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

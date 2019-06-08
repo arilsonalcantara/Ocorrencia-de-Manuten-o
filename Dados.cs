@@ -18,12 +18,14 @@ namespace Ocorrencia_de_Manutenção
 
         public List<Usuarios> CadastroUsuarios;
         public List<Ocorrencia> CadOcorrencias;
+        public List<Laboratório> CadLaboratorio;
 
 
         public Dados()
         {
             CadastroUsuarios = new List<Usuarios>();
             CadOcorrencias = new List<Ocorrencia>();
+            CadLaboratorio = new List<Laboratório>();
         }
 
         public void InserirUsuario(Usuarios x)
@@ -35,6 +37,12 @@ namespace Ocorrencia_de_Manutenção
         public void InserirOcorrencia(Ocorrencia x)
         {
             CadOcorrencias.Add(x);
+
+        }
+
+        public void InserirLab(Laboratório x)
+        {
+            CadLaboratorio.Add(x);
 
         }
 
@@ -69,6 +77,74 @@ namespace Ocorrencia_de_Manutenção
 
             }
 
+        }
+
+        public void GravarLab(Laboratório l)
+        {
+            try
+            {
+                XElement x = new XElement("Laboratorios");
+
+                x.Add(new XAttribute("Codigo", l.CodigoLab.ToString()));
+                x.Add(new XAttribute("Administrador", l.Administrador));
+                x.Add(new XAttribute("CodAdm", l.CodAdm));
+                x.Add(new XAttribute("Status", l.Ocorrencias));
+                x.Add(new XAttribute("Predio", l.Prédio));
+
+                XElement xml = XElement.Load(@"Laboratorio.xml");
+
+                xml.Add(x);
+
+                xml.Save("Laboratorio.xml");
+            }
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message);
+                FileStream Arquivo = new FileStream(@"Laboratorio.xml", FileMode.OpenOrCreate);
+                Arquivo.Close();
+            }
+
+            catch (System.Xml.XmlException e)
+            {
+                MessageBox.Show(e.Message);
+
+            }
+        }
+
+        public void GravarOcorrenciaXML(Ocorrencia o)
+        {
+            try
+            {
+                XElement x = new XElement("Ocorrencias");
+
+                x.Add(new XAttribute("Id", o.ID.ToString()));
+                x.Add(new XAttribute("Descrição", o.Descriçao));
+                x.Add(new XAttribute("Status", o.Status));
+                x.Add(new XAttribute("UltimaModicacao", o.DataUpdate));
+                x.Add(new XAttribute("DataDeAbertura", o.DateInicio));
+                x.Add(new XAttribute("Predio", o.Predio));
+                x.Add(new XAttribute("Laboratorio", o.Laboratorio));
+                x.Add(new XAttribute("Usuario", o.Usuario));
+
+
+                XElement xml = XElement.Load(@"Ocorrencias.xml");
+
+                xml.Add(x);
+
+                xml.Save("Ocorrencias.xml");
+            }
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message);
+                FileStream Arquivo = new FileStream(@"Ocorrencias.xml", FileMode.OpenOrCreate);
+                Arquivo.Close();
+            }
+
+            catch (System.Xml.XmlException e)
+            {
+                MessageBox.Show(e.Message);
+
+            }
         }
 
         public bool ValidaLaboratórios(string CódigoLab, string Prédio)
@@ -107,7 +183,7 @@ namespace Ocorrencia_de_Manutenção
             return Lab;
         }
 
-        
+
 
         public void EnviaEmail(string email, string nomeusuario, string senha)
         {
@@ -143,28 +219,56 @@ namespace Ocorrencia_de_Manutenção
             }
         }
 
-        
 
-        public  List<Ocorrencia> ListaOcorrencia()
+
+        public List<Ocorrencia> ListaOcorrencia()
         {
-            List<Ocorrencia> ocorrencia = new List<Ocorrencia>();
-            XElement xml = XElement.Load("Ocorrencias.xml");
-            foreach (XElement x in xml.Elements())
+            CadOcorrencias = new List<Ocorrencia>();
+            try
             {
-                Ocorrencia o = new Ocorrencia()
+
+                XElement xml = XElement.Load("Ocorrencias.xml");
+                foreach (XElement x in xml.Elements())
                 {
-                    ID = int.Parse(x.Attribute("Id").Value),
-                    Descriçao = x.Attribute("Descriçao").Value,
-                    Prioridade = x.Attribute("Prioridade").Value,
-                    Status = x.Attribute("Status").Value,
-                    DataUpdate = x.Attribute("DataUpdate").Value,
-                    DateInicio = x.Attribute("DateInicio").Value,
-                    Laboratorio = int.Parse(x.Attribute("Laboratorio").Value),
-                    Usuario = x.Attribute("Usuario").Value
-                };
-                ocorrencia.Add(o);
+                    Ocorrencia o = new Ocorrencia()
+                    {
+                        ID = int.Parse(x.Attribute("ID").Value),
+                        Descriçao = x.Attribute("Descriçao").Value,
+                        Status = x.Attribute("Status").Value,
+                        DateInicio = x.Attribute("DateInicio").Value,
+                        DataUpdate = x.Attribute("DataUpdate").Value,
+                        Predio = x.Attribute("Predio").Value,
+                        Laboratorio = int.Parse(x.Attribute("Laboratorio").Value),
+                        Usuario = x.Attribute("Usuario").Value,
+                        Prioridade = x.Attribute("Prioridade").Value
+                    };
+                    CadOcorrencias.Add(o);
+                }
+
             }
-            return ocorrencia;
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message);
+                FileStream Arquivo = new FileStream(@"Ocorrencias.xml", FileMode.OpenOrCreate);
+                Arquivo.Close();
+            }
+
+            catch (System.Xml.XmlException e)
+            {
+                MessageBox.Show(e.Message);
+
+                TextWriter MeuWriter = new StreamWriter(@"Ocorrencias.xml");
+
+                List<Ocorrencia> ListaOcorrencia = CadOcorrencias;
+
+                XmlSerializer Serialização = new XmlSerializer(ListaOcorrencia.GetType());
+
+                Serialização.Serialize(MeuWriter, ListaOcorrencia);
+
+                MeuWriter.Close();
+            }
+
+            return CadOcorrencias;
         }
 
     }

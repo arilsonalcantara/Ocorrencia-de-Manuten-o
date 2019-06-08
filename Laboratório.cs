@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Ocorrencia_de_Manutenção
 {
@@ -24,12 +25,12 @@ namespace Ocorrencia_de_Manutenção
             set { _CodigoLab = value; }
         }
 
-        private string _Status;
+        private int _Ocorrencias;
 
-        public string Status
+        public int Ocorrencias
         {
-            get { return _Status; }
-            set { _Status = value; }
+            get { return _Ocorrencias; }
+            set { _Ocorrencias = value; }
         }
 
 
@@ -62,6 +63,40 @@ namespace Ocorrencia_de_Manutenção
         public Laboratório()
         {
             CodigoLab = CodUniq();
+            Ocorrencias = 0;
+        }
+
+        public List<Laboratório> ListarPredios()
+        {
+            List<Laboratório> predios = new List<Laboratório>();
+            XElement xml = XElement.Load("Laboratorios.xml");
+            foreach (XElement x in xml.Elements())
+            {
+                Laboratório l = new Laboratório()
+                {
+                    Prédio = int.Parse(x.Attribute("Predio").Value)
+                };
+                predios.Add(l);
+            }
+            return predios;
+        }
+
+        public List<Laboratório> ListarLab(string predio)
+        {
+            List<Laboratório> lab = new List<Laboratório>();
+            XElement xml = XElement.Load("Laboratorios.xml");
+            IEnumerable<XElement> pesquisa = from e in xml.Elements("Laboratorios")
+                                             where (string)e.Attribute("Predios") == predio
+                                             select e;
+            foreach (XElement e in xml.Elements())
+            {
+                Laboratório l = new Laboratório()
+                {
+                    CodigoLab = int.Parse(e.Attribute("Laboratorio").Value)
+                };
+                lab.Add(l);
+            }
+            return lab;
         }
     }
 }

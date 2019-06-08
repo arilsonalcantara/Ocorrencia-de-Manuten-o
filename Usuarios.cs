@@ -65,6 +65,7 @@ namespace Ocorrencia_de_Manutenção
         public  Usuarios()
         {
             Codigo = CodUniq();
+            Tipo = "Padrão";
         }
 
         public override string ToString()

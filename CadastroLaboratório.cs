@@ -21,7 +21,7 @@ namespace Ocorrencia_de_Manutenção
 
         MenuOpção OpçãoCadastro;
 
-        
+
 
         public CadastroLaboratório(MenuOpção opc)
         {
@@ -30,6 +30,7 @@ namespace Ocorrencia_de_Manutenção
             OpçãoCadastro = opc;
 
             txtCodLab.Text = l.CodigoLab.ToString();
+            txtStatus.Text = l.Ocorrencias.ToString();
         }
 
         private void BtnSalvarUsuario_Click(object sender, EventArgs e)
@@ -43,33 +44,27 @@ namespace Ocorrencia_de_Manutenção
 
             int codigo = int.Parse(txtCodLab.Text);
             string adm = comboBox1.Text;
-            int codigoamd = int.Parse(txtCodAdm.Text); 
-            string status = txtStatus.Text;
-            int predio = int.Parse(txtPrédio.Text);
+            int codigoamd = int.Parse(txtCodAdm.Text);
+            int ocorrencia = int.Parse(txtStatus.Text);
+            int predio = int.Parse(cbPredio.Text);
 
 
-            //bool retorno = MinhasOperações.InserirUsuario(codigo, nomeusuario, email, senha, tipo);
+            bool retorno = MinhasOperações.InserirLab(codigo, adm, codigoamd, ocorrencia, predio);
 
-            //if (retorno == true)
-            //{
+            if (retorno == true)
+            {
 
-            //    MessageBox.Show(TextoMsg, TituloMsg);
+                MessageBox.Show(TextoMsg, TituloMsg);
 
-            //    this.Close();
+                this.Close();
 
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Não foi possível cadastrar seu usuário, escolha outro nome", TituloMsg2, BotaoMsg, IconeMsg); // MessageBox que será exibido com o texto, botão e ícone que está declarado acima
-
-
-            //    textNome.Clear();
-            //    textEmail.Clear();
-            //    textSenha.Clear();
-            //    textConfirmarSenha.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Não foi possível cadastrar o laboratorio, escolha outro predio", TituloMsg2, BotaoMsg, IconeMsg); // MessageBox que será exibido com o texto, botão e ícone que está declarado acima
 
 
-            //}
+            }
         }
 
         private void CadastroLaboratório_Load(object sender, EventArgs e)
