@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,23 +53,124 @@ namespace Ocorrencia_de_Manutenção
 
         public bool ValidaUsuario(string usuario, int codigo)
         {
-            bool verifica = MeusDados.ValidaUsuarios(usuario,codigo); 
+            //bool verifica = MeusDados.ValidaUsuarios(usuario,codigo); 
 
-            return verifica; 
+            //return verifica; 
+
+            bool user = false;
+
+            try
+            {
+                XElement p = XElement.Load(@"Usuarios.xml");
+                IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
+                                                 where (string)e.Attribute("Username") == usuario
+                                                 select e;
+
+                foreach (XElement e in pesquisa)
+                {
+
+                    if ((string)e.Attribute("Username") == usuario || (int)e.Attribute("Codigo") == codigo)
+                        user = true;
+                }
+
+
+            }
+
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message);
+                FileStream Arquivo = new FileStream(@"Usuarios.xml", FileMode.OpenOrCreate);
+                Arquivo.Close();
+            }
+
+            catch (System.Xml.XmlException e)
+            {
+                MessageBox.Show(e.Message);
+
+            }
+
+            return user;
         }
 
         public bool ValidaLogin(string usuario, string senha)
         {
-            bool verifica = MeusDados.ValidaLogin(usuario,senha);
+            //bool verifica = MeusDados.ValidaLogin(usuario,senha);
 
-            return verifica;
+            //return verifica;
+
+            bool user = false;
+
+            try
+            {
+                XElement p = XElement.Load(@"Usuarios.xml");
+                IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
+                                                 where (string)e.Attribute("Username") == usuario
+                                                 select e;
+
+                foreach (XElement e in pesquisa)
+                {
+
+                    if ((string)e.Attribute("Username") == usuario && (string)e.Attribute("Password") == senha)
+                        user = true;
+                }
+
+
+            }
+
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message);
+                FileStream Arquivo = new FileStream(@"Usuarios.xml", FileMode.OpenOrCreate);
+                Arquivo.Close();
+            }
+
+            catch (System.Xml.XmlException e)
+            {
+                MessageBox.Show(e.Message);
+
+            }
+
+            return user;
         }
 
         public int PesquisaCodigoAdm(string adm)
         {
-            int codadm;
+            //int codadm;
 
-            codadm = MeusDados.PesquisaCodigoAdm(adm);
+            //codadm = MeusDados.PesquisaCodigoAdm(adm);
+
+            //return codadm;
+
+            int codadm = 0;
+
+            try
+            {
+                XElement p = XElement.Load(@"Usuarios.xml");
+                IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
+                                                 where (string)e.Attribute("Username") == adm
+                                                 select e;
+
+                foreach (XElement e in pesquisa)
+                {
+                    codadm = int.Parse(e.Attribute("Codigo").Value);
+
+                }
+
+
+            }
+
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message);
+                FileStream Arquivo = new FileStream(@"Usuarios.xml", FileMode.OpenOrCreate);
+                Arquivo.Close();
+            }
+
+            catch (System.Xml.XmlException e)
+            {
+                MessageBox.Show(e.Message);
+
+            }
 
             return codadm;
 
@@ -80,7 +182,23 @@ namespace Ocorrencia_de_Manutenção
         }
        public string VerificaTipo(string user)
         {
-           string tipo = MeusDados.VerificaTipo(user);
+            //string tipo = MeusDados.VerificaTipo(user);
+
+            // return tipo;
+
+            string tipo = "";
+
+            XElement p = XElement.Load(@"Usuarios.xml");
+            IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
+                                             where (string)e.Attribute("Username") == user
+                                             select e;
+
+            foreach (XElement e in pesquisa)
+            {
+                tipo = e.Attribute("Tipo").Value.ToString();
+
+            }
+
 
             return tipo;
         }

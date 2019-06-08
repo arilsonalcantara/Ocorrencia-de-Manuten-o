@@ -71,83 +71,6 @@ namespace Ocorrencia_de_Manutenção
 
         }
 
-
-
-        public bool ValidaUsuarios(string usuario, int codigo)
-        {
-            bool user = false;
-
-            try
-            {
-                XElement p = XElement.Load(@"Usuarios.xml");
-                IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
-                                                 where (string)e.Attribute("Username") == usuario
-                                                 select e;
-
-                foreach (XElement e in pesquisa)
-                {
-
-                    if ((string)e.Attribute("Username") == usuario || (int)e.Attribute("Codigo") == codigo)
-                        user = true;
-                }
-
-
-            }
-
-            catch (FileNotFoundException e)
-            {
-                MessageBox.Show(e.Message);
-                FileStream Arquivo = new FileStream(@"Usuarios.xml", FileMode.OpenOrCreate);
-                Arquivo.Close();
-            }
-
-            catch (System.Xml.XmlException e)
-            {
-                MessageBox.Show(e.Message);
-
-            }
-
-            return user;
-        }
-
-        public bool ValidaLogin(string usuario, string senha)
-        {
-            bool user = false;
-
-            try
-            {
-                XElement p = XElement.Load(@"Usuarios.xml");
-                IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
-                                                 where (string)e.Attribute("Username") == usuario
-                                                 select e;
-
-                foreach (XElement e in pesquisa)
-                {
-
-                    if ((string)e.Attribute("Username") == usuario && (string)e.Attribute("Password") == senha)
-                        user = true;
-                }
-
-
-            }
-
-            catch (FileNotFoundException e)
-            {
-                MessageBox.Show(e.Message);
-                FileStream Arquivo = new FileStream(@"Usuarios.xml", FileMode.OpenOrCreate);
-                Arquivo.Close();
-            }
-
-            catch (System.Xml.XmlException e)
-            {
-                MessageBox.Show(e.Message);
-
-            }
-
-            return user;
-        }
-
-
         public bool ValidaLaboratórios(string CódigoLab, string Prédio)
         {
             bool Lab = false;
@@ -184,41 +107,7 @@ namespace Ocorrencia_de_Manutenção
             return Lab;
         }
 
-        public int PesquisaCodigoAdm(string adm)
-        {
-            int codadm = 0;
-
-            try
-            {
-                XElement p = XElement.Load(@"Usuarios.xml");
-                IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
-                                                 where (string)e.Attribute("Username") == adm
-                                                 select e;
-
-                foreach (XElement e in pesquisa)
-                {
-                    codadm = int.Parse(e.Attribute("Codigo").Value);
-
-                }
-
-
-            }
-
-            catch (FileNotFoundException e)
-            {
-                MessageBox.Show(e.Message);
-                FileStream Arquivo = new FileStream(@"Usuarios.xml", FileMode.OpenOrCreate);
-                Arquivo.Close();
-            }
-
-            catch (System.Xml.XmlException e)
-            {
-                MessageBox.Show(e.Message);
-
-            }
-
-            return codadm;
-        }
+        
 
         public void EnviaEmail(string email, string nomeusuario, string senha)
         {
@@ -254,26 +143,7 @@ namespace Ocorrencia_de_Manutenção
             }
         }
 
-        public string VerificaTipo(string user)
-        {
-            string tipo = "";
-
-
-
-            XElement p = XElement.Load(@"Usuarios.xml");
-            IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
-                                             where (string)e.Attribute("Username") == user
-                                             select e;
-
-            foreach (XElement e in pesquisa)
-            {
-                tipo = e.Attribute("Tipo").Value.ToString();
-
-            }
-
-
-            return tipo;
-        }
+        
 
         public  List<Ocorrencia> ListaOcorrencia()
         {
