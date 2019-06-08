@@ -48,8 +48,6 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.radioMasculino = new System.Windows.Forms.RadioButton();
-            this.radioFeminino = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -172,7 +170,7 @@
             this.cbTipoUsuario.FormattingEnabled = true;
             this.cbTipoUsuario.Items.AddRange(new object[] {
             "Administrador",
-            "Usuário Padrão"});
+            "Padrão"});
             this.cbTipoUsuario.Location = new System.Drawing.Point(323, 31);
             this.cbTipoUsuario.Name = "cbTipoUsuario";
             this.cbTipoUsuario.Size = new System.Drawing.Size(121, 21);
@@ -301,43 +299,11 @@
             this.pictureBox6.TabIndex = 18;
             this.pictureBox6.TabStop = false;
             // 
-            // radioMasculino
-            // 
-            this.radioMasculino.AutoSize = true;
-            this.radioMasculino.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.radioMasculino.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.radioMasculino.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioMasculino.ForeColor = System.Drawing.Color.Blue;
-            this.radioMasculino.Location = new System.Drawing.Point(411, 176);
-            this.radioMasculino.Name = "radioMasculino";
-            this.radioMasculino.Size = new System.Drawing.Size(79, 17);
-            this.radioMasculino.TabIndex = 10;
-            this.radioMasculino.TabStop = true;
-            this.radioMasculino.Text = "Masculino";
-            this.radioMasculino.UseVisualStyleBackColor = false;
-            // 
-            // radioFeminino
-            // 
-            this.radioFeminino.AutoSize = true;
-            this.radioFeminino.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.radioFeminino.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.radioFeminino.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioFeminino.ForeColor = System.Drawing.Color.Fuchsia;
-            this.radioFeminino.Location = new System.Drawing.Point(411, 199);
-            this.radioFeminino.Name = "radioFeminino";
-            this.radioFeminino.Size = new System.Drawing.Size(75, 17);
-            this.radioFeminino.TabIndex = 11;
-            this.radioFeminino.TabStop = true;
-            this.radioFeminino.Text = "Feminino";
-            this.radioFeminino.UseVisualStyleBackColor = false;
-            // 
             // CadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 319);
-            this.Controls.Add(this.radioFeminino);
-            this.Controls.Add(this.radioMasculino);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
@@ -391,7 +357,5 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.RadioButton radioMasculino;
-        private System.Windows.Forms.RadioButton radioFeminino;
     }
 }

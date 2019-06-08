@@ -86,7 +86,9 @@ namespace Ocorrencia_de_Manutenção
 
                 MessageBox.Show(TextoMsg, TituloMsg);
 
-                MenuOpção x = new MenuOpção(this, usuario);
+                string tipo = MinhasOperações.VerificaTipo(usuario);
+
+                MenuOpção x = new MenuOpção(this, usuario, tipo);
 
                 x.Show();
 

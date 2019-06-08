@@ -33,21 +33,21 @@ namespace Ocorrencia_de_Manutenção
             set { _Status = value; }
         }
 
-        //private Data _DateInicio;   || Comentado para lembrar de implmentar
+        private string _DateInicio;   
 
-        //public Data DateInicio
-        //{
-        //    get { return _DateInicio; }
-        //    set { _DateInicio = value; }
-        //}
+        public string DateInicio
+        {
+            get { return _DateInicio; }
+            set { _DateInicio = value; }
+        }
 
-        //private Data _DataUpdate;
+        private string _DataUpdate;
 
-        //public Data DataUpdate
-        //{
-        //    get { return _DataUpdate; }
-        //    set { _DataUpdate = value; }
-        //}
+        public string DataUpdate
+        {
+            get { return _DataUpdate; }
+            set { _DataUpdate = value; }
+        }
 
         private int _Laboratorio;
 
@@ -64,6 +64,15 @@ namespace Ocorrencia_de_Manutenção
             get { return _Usuario; }
             set { _Usuario = value; }
         }
+
+        private string _Prioridade;
+
+        public string Prioridade
+        {
+            get { return _Prioridade; }
+            set { _Prioridade = value; }
+        }
+
 
         public int CodUniq()
         {

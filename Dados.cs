@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -231,7 +232,60 @@ namespace Ocorrencia_de_Manutenção
             return codadm;
         }
 
+        public void EnviaEmail(string email, string nomeusuario, string senha)
+        {
+            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
 
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential("registroocorrencialab@gmail.com", "R@inh@337890");
+
+            MailMessage mail = new MailMessage();
+            mail.Sender = new System.Net.Mail.MailAddress("registroocorrencialab@gmail.com", "Gestão de Laboratório de Informática");
+            mail.From = new MailAddress("registroocorrencialab@gmail.com", "GLI");
+            mail.To.Add(new MailAddress(email, nomeusuario));
+
+            mail.Subject = "Contato";
+            mail.Body = "Usuario cadastrado com sucesso! Usuario: \n" + nomeusuario + "\n Senha: " + senha;
+            mail.IsBodyHtml = true;
+            mail.Priority = MailPriority.High;
+
+            try
+            {
+                smtp.Send(mail);
+            }
+            catch (InvalidOperationException erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+            finally
+            {
+                mail = null;
+            }
+        }
+
+        public string VerificaTipo(string user)
+        {
+            string tipo="";
+
+
+
+            XElement p = XElement.Load(@"Usuarios.xml");
+            IEnumerable<XElement> pesquisa = from e in p.Elements("Usuarios")
+                                             where (string)e.Attribute("Username") == user
+                                             select e;
+
+            foreach (XElement e in pesquisa)
+            {
+                tipo = e.Attribute("Tipo").Value.ToString();
+
+            }
+
+
+            return tipo;
+        }
 
     }
 }

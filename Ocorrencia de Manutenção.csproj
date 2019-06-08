@@ -58,6 +58,12 @@
     <Compile Include="CadastroUsuario.Designer.cs">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="GridOcorrencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridOcorrencia.Designer.cs">
+      <DependentUpon>GridOcorrencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="IControler.cs" />
     <Compile Include="Laboratório.cs" />
     <Compile Include="MenuOpção.cs">
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastroUsuario.resx">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridOcorrencia.resx">
+      <DependentUpon>GridOcorrencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuOpção.resx">
       <DependentUpon>MenuOpção.cs</DependentUpon>
