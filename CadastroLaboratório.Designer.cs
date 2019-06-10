@@ -34,7 +34,6 @@ namespace Ocorrencia_de_Manutenção
             this.lblAdministrador = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblPrédio = new System.Windows.Forms.Label();
             this.btnSalvarUsuario = new System.Windows.Forms.Button();
             this.txtCodAdm = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,7 +41,6 @@ namespace Ocorrencia_de_Manutenção
             this.txtCodLab = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cbPredio = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +65,7 @@ namespace Ocorrencia_de_Manutenção
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(119, 20);
             this.txtStatus.TabIndex = 5;
+            this.txtStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -75,25 +74,14 @@ namespace Ocorrencia_de_Manutenção
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(29, 145);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 15);
+            this.label3.Size = new System.Drawing.Size(106, 15);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Status";
-            // 
-            // lblPrédio
-            // 
-            this.lblPrédio.AutoSize = true;
-            this.lblPrédio.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblPrédio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrédio.Location = new System.Drawing.Point(29, 205);
-            this.lblPrédio.Name = "lblPrédio";
-            this.lblPrédio.Size = new System.Drawing.Size(43, 15);
-            this.lblPrédio.TabIndex = 8;
-            this.lblPrédio.Text = "Prédio";
+            this.label3.Text = "Nº de Ocorrências";
             // 
             // btnSalvarUsuario
             // 
             this.btnSalvarUsuario.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvarUsuario.Location = new System.Drawing.Point(240, 289);
+            this.btnSalvarUsuario.Location = new System.Drawing.Point(46, 218);
             this.btnSalvarUsuario.Name = "btnSalvarUsuario";
             this.btnSalvarUsuario.Size = new System.Drawing.Size(75, 23);
             this.btnSalvarUsuario.TabIndex = 10;
@@ -173,37 +161,17 @@ namespace Ocorrencia_de_Manutenção
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
-            // cbPredio
-            // 
-            this.cbPredio.FormattingEnabled = true;
-            this.cbPredio.Items.AddRange(new object[] {
-            "001",
-            "002",
-            "003",
-            "004",
-            "005",
-            "006",
-            "007",
-            "008",
-            "009"});
-            this.cbPredio.Location = new System.Drawing.Point(28, 231);
-            this.cbPredio.Name = "cbPredio";
-            this.cbPredio.Size = new System.Drawing.Size(121, 21);
-            this.cbPredio.TabIndex = 17;
-            // 
             // CadastroLaboratório
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 336);
-            this.Controls.Add(this.cbPredio);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtCodLab);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCodAdm);
             this.Controls.Add(this.btnSalvarUsuario);
-            this.Controls.Add(this.lblPrédio);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.lblAdministrador);
@@ -222,7 +190,6 @@ namespace Ocorrencia_de_Manutenção
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblPrédio;
         private Button btnSalvarUsuario;
         private TextBox txtCodAdm;
         private Label label1;
@@ -230,6 +197,5 @@ namespace Ocorrencia_de_Manutenção
         private TextBox txtCodLab;
         private ComboBox comboBox1;
         private PictureBox pictureBox1;
-        private ComboBox cbPredio;
     }
 }

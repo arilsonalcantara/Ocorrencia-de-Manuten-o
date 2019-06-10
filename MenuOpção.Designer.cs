@@ -41,8 +41,10 @@
             // btnVisualizaOcorrencias
             // 
             this.btnVisualizaOcorrencias.BackColor = System.Drawing.Color.Transparent;
-            this.btnVisualizaOcorrencias.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnVisualizaOcorrencias.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnVisualizaOcorrencias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVisualizaOcorrencias.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnVisualizaOcorrencias.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnVisualizaOcorrencias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
             this.btnVisualizaOcorrencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVisualizaOcorrencias.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVisualizaOcorrencias.ForeColor = System.Drawing.SystemColors.AppWorkspace;
@@ -53,11 +55,15 @@
             this.btnVisualizaOcorrencias.Text = "Visualizar Ocorrências";
             this.btnVisualizaOcorrencias.UseVisualStyleBackColor = false;
             this.btnVisualizaOcorrencias.Click += new System.EventHandler(this.BtnVisualizaOcorrencias_Click);
+            this.btnVisualizaOcorrencias.MouseEnter += new System.EventHandler(this.BtnVisualizaOcorrencias_MouseEnter);
+            this.btnVisualizaOcorrencias.MouseLeave += new System.EventHandler(this.BtnVisualizaOcorrencias_MouseLeave);
             // 
             // button2
             // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.AppWorkspace;
@@ -69,10 +75,14 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.Button2_Click_1);
+            this.button2.MouseEnter += new System.EventHandler(this.Button2_MouseEnter);
+            this.button2.MouseLeave += new System.EventHandler(this.Button2_MouseLeave);
             // 
             // btnUsuariosSistemas
             // 
-            this.btnUsuariosSistemas.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnUsuariosSistemas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsuariosSistemas.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnUsuariosSistemas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
             this.btnUsuariosSistemas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsuariosSistemas.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuariosSistemas.ForeColor = System.Drawing.SystemColors.AppWorkspace;
@@ -83,6 +93,9 @@
             this.btnUsuariosSistemas.Text = "Usuarios do Sistema";
             this.btnUsuariosSistemas.UseVisualStyleBackColor = true;
             this.btnUsuariosSistemas.Visible = false;
+            this.btnUsuariosSistemas.Click += new System.EventHandler(this.BtnUsuariosSistemas_Click);
+            this.btnUsuariosSistemas.MouseEnter += new System.EventHandler(this.BtnUsuariosSistemas_MouseEnter);
+            this.btnUsuariosSistemas.MouseLeave += new System.EventHandler(this.BtnUsuariosSistemas_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -97,8 +110,11 @@
             // 
             // btnLaboratoriosSistemas
             // 
-            this.btnLaboratoriosSistemas.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnLaboratoriosSistemas.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnLaboratoriosSistemas.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLaboratoriosSistemas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLaboratoriosSistemas.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnLaboratoriosSistemas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnLaboratoriosSistemas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
             this.btnLaboratoriosSistemas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLaboratoriosSistemas.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLaboratoriosSistemas.ForeColor = System.Drawing.SystemColors.AppWorkspace;
@@ -107,15 +123,21 @@
             this.btnLaboratoriosSistemas.Size = new System.Drawing.Size(96, 42);
             this.btnLaboratoriosSistemas.TabIndex = 5;
             this.btnLaboratoriosSistemas.Text = "Laborátorios do Sistema";
-            this.btnLaboratoriosSistemas.UseVisualStyleBackColor = true;
+            this.btnLaboratoriosSistemas.UseVisualStyleBackColor = false;
             this.btnLaboratoriosSistemas.Visible = false;
+            this.btnLaboratoriosSistemas.Click += new System.EventHandler(this.BtnLaboratoriosSistemas_Click);
+            this.btnLaboratoriosSistemas.MouseEnter += new System.EventHandler(this.BtnLaboratoriosSistemas_MouseEnter);
+            this.btnLaboratoriosSistemas.MouseLeave += new System.EventHandler(this.BtnLaboratoriosSistemas_MouseLeave);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Verdana", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.Location = new System.Drawing.Point(131, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 24);

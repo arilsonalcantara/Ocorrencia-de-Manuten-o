@@ -52,10 +52,7 @@ namespace Ocorrencia_de_Manutenção
             {
                 txtPassword.UseSystemPasswordChar = true;
             }
-            else
-            {
-                btnLogin.Enabled = false;
-            }
+            
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
@@ -65,7 +62,7 @@ namespace Ocorrencia_de_Manutenção
 
 
 
-            string TextoMsg = "Bemv - Vindo ao RML";
+            string TextoMsg = "Bemv - Vindo ao GOL";
             string TituloMsg = "Acesso Concedido";
             string TituloMsg2 = "Acesso Negado";
 

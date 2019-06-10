@@ -64,6 +64,7 @@
             this.textNome.Name = "textNome";
             this.textNome.Size = new System.Drawing.Size(115, 20);
             this.textNome.TabIndex = 0;
+            this.textNome.TextChanged += new System.EventHandler(this.TextNome_TextChanged);
             this.textNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextNome_KeyPress);
             // 
             // textEmail
@@ -74,6 +75,7 @@
             this.textEmail.Name = "textEmail";
             this.textEmail.Size = new System.Drawing.Size(115, 20);
             this.textEmail.TabIndex = 1;
+            this.textEmail.TextChanged += new System.EventHandler(this.TextEmail_TextChanged);
             this.textEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextEmail_KeyPress);
             // 
             // label1
@@ -119,7 +121,7 @@
             this.textSenha.Location = new System.Drawing.Point(160, 127);
             this.textSenha.Name = "textSenha";
             this.textSenha.Size = new System.Drawing.Size(115, 20);
-            this.textSenha.TabIndex = 5;
+            this.textSenha.TabIndex = 2;
             this.textSenha.TextChanged += new System.EventHandler(this.TextSenha_TextChanged);
             this.textSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextSenha_KeyPress);
             // 
@@ -141,7 +143,7 @@
             this.textConfirmarSenha.Location = new System.Drawing.Point(160, 196);
             this.textConfirmarSenha.Name = "textConfirmarSenha";
             this.textConfirmarSenha.Size = new System.Drawing.Size(115, 20);
-            this.textConfirmarSenha.TabIndex = 7;
+            this.textConfirmarSenha.TabIndex = 3;
             this.textConfirmarSenha.TextChanged += new System.EventHandler(this.TextConfirmarSenha_TextChanged);
             this.textConfirmarSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextConfirmarSenha_KeyPress);
             // 
@@ -151,17 +153,22 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastrar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnCadastrar.Enabled = false;
+            this.btnCadastrar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCadastrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LimeGreen;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold);
             this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnCadastrar.Location = new System.Drawing.Point(238, 266);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(104, 29);
-            this.btnCadastrar.TabIndex = 9;
+            this.btnCadastrar.TabIndex = 5;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.BtnCadastrar_Click);
+            this.btnCadastrar.MouseEnter += new System.EventHandler(this.BtnCadastrar_MouseEnter);
+            this.btnCadastrar.MouseLeave += new System.EventHandler(this.BtnCadastrar_MouseLeave);
             // 
             // cbTipoUsuario
             // 
@@ -174,7 +181,7 @@
             this.cbTipoUsuario.Location = new System.Drawing.Point(323, 31);
             this.cbTipoUsuario.Name = "cbTipoUsuario";
             this.cbTipoUsuario.Size = new System.Drawing.Size(121, 21);
-            this.cbTipoUsuario.TabIndex = 8;
+            this.cbTipoUsuario.TabIndex = 4;
             this.cbTipoUsuario.Visible = false;
             this.cbTipoUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbTipoUsuario_KeyPress);
             // 
@@ -234,7 +241,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(136, 32);
+            this.pictureBox2.Location = new System.Drawing.Point(135, 32);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -249,7 +256,7 @@
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(136, 127);
+            this.pictureBox3.Location = new System.Drawing.Point(135, 127);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(27, 20);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -264,7 +271,7 @@
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(136, 196);
+            this.pictureBox4.Location = new System.Drawing.Point(135, 196);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(27, 20);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -279,7 +286,7 @@
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(136, 77);
+            this.pictureBox5.Location = new System.Drawing.Point(135, 77);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(27, 20);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -300,6 +307,7 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 18;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Visible = false;
             // 
             // CadastroUsuario
             // 

@@ -46,10 +46,9 @@ namespace Ocorrencia_de_Manutenção
             string adm = comboBox1.Text;
             int codigoamd = int.Parse(txtCodAdm.Text);
             int ocorrencia = int.Parse(txtStatus.Text);
-            int predio = int.Parse(cbPredio.Text);
 
 
-            bool retorno = MinhasOperações.InserirLab(codigo, adm, codigoamd, ocorrencia, predio);
+            bool retorno = MinhasOperações.InserirLab(codigo, adm, codigoamd, ocorrencia);
 
             if (retorno == true)
             {

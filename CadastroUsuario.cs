@@ -76,7 +76,7 @@ namespace Ocorrencia_de_Manutenção
 
         private void TextNome_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
             {
                 textEmail.Focus();
             }
@@ -105,7 +105,8 @@ namespace Ocorrencia_de_Manutenção
 
                 if (textSenha.Text.Equals(textConfirmarSenha.Text))
                 {
-                    cbTipoUsuario.Focus();
+                    btnCadastrar.Focus();
+                    btnCadastrar.PerformClick();
                 }
                 else
                 {
@@ -130,7 +131,7 @@ namespace Ocorrencia_de_Manutenção
             if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
             {
                 btnCadastrar.Focus();
-                btnCadastrar.PerformClick();
+                
             }
         }
 
@@ -150,6 +151,14 @@ namespace Ocorrencia_de_Manutenção
 
         private void TextSenha_TextChanged(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(textNome.Text) && !string.IsNullOrEmpty(textSenha.Text) && !string.IsNullOrEmpty(textEmail.Text) && !string.IsNullOrEmpty(textConfirmarSenha.Text))
+            {
+                btnCadastrar.Enabled = true;
+            }
+            else
+            {
+                btnCadastrar.Enabled = false;
+            }
             if (!string.IsNullOrEmpty(textSenha.Text))
             {
                 textSenha.UseSystemPasswordChar = true;
@@ -158,6 +167,14 @@ namespace Ocorrencia_de_Manutenção
 
         private void TextConfirmarSenha_TextChanged(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(textNome.Text) && !string.IsNullOrEmpty(textSenha.Text) && !string.IsNullOrEmpty(textEmail.Text) && !string.IsNullOrEmpty(textConfirmarSenha.Text))
+            {
+                btnCadastrar.Enabled = true;
+            }
+            else
+            {
+                btnCadastrar.Enabled = false;
+            }
             if (!string.IsNullOrEmpty(textConfirmarSenha.Text))
             {
                 textConfirmarSenha.UseSystemPasswordChar = true;
@@ -167,6 +184,40 @@ namespace Ocorrencia_de_Manutenção
         private void CadastroUsuario_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void TextNome_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textNome.Text) && !string.IsNullOrEmpty(textSenha.Text) && !string.IsNullOrEmpty(textEmail.Text) && !string.IsNullOrEmpty(textConfirmarSenha.Text))
+            {
+                btnCadastrar.Enabled = true;
+            }
+            else
+            {
+                btnCadastrar.Enabled = false;
+            }
+        }
+
+        private void BtnCadastrar_MouseEnter(object sender, EventArgs e)
+        {
+            btnCadastrar.ForeColor = Color.White;
+        }
+
+        private void BtnCadastrar_MouseLeave(object sender, EventArgs e)
+        {
+            btnCadastrar.ForeColor = SystemColors.ControlDarkDark;
+        }
+
+        private void TextEmail_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textNome.Text) && !string.IsNullOrEmpty(textSenha.Text) && !string.IsNullOrEmpty(textEmail.Text) && !string.IsNullOrEmpty(textConfirmarSenha.Text))
+            {
+                btnCadastrar.Enabled = true;
+            }
+            else
+            {
+                btnCadastrar.Enabled = false;
+            }
         }
     }
 }

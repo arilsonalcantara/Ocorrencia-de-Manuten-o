@@ -61,6 +61,58 @@ namespace Ocorrencia_de_Manutenção
             x.Show();
         }
 
-        
+        private void BtnLaboratoriosSistemas_Click(object sender, EventArgs e)
+        {
+            GridLab x = new GridLab(this);
+
+            x.Show();
+        }
+
+        private void BtnUsuariosSistemas_Click(object sender, EventArgs e)
+        {
+            GridUsuarios x = new GridUsuarios(this);
+
+            x.Show();
+        }
+
+        private void BtnVisualizaOcorrencias_MouseEnter(object sender, EventArgs e)
+        {
+            btnVisualizaOcorrencias.ForeColor = Color.White;
+        }
+
+        private void Button2_MouseEnter(object sender, EventArgs e)
+        {
+            button2.ForeColor = Color.White;
+        }
+
+        private void BtnLaboratoriosSistemas_MouseEnter(object sender, EventArgs e)
+        {
+            btnLaboratoriosSistemas.ForeColor = Color.White;
+        }
+
+        private void BtnUsuariosSistemas_MouseEnter(object sender, EventArgs e)
+        {
+            btnUsuariosSistemas.ForeColor = Color.White;
+        }
+
+        private void BtnUsuariosSistemas_MouseLeave(object sender, EventArgs e)
+        {
+            btnUsuariosSistemas.ForeColor = SystemColors.ControlDarkDark;
+        }
+
+        private void BtnLaboratoriosSistemas_MouseLeave(object sender, EventArgs e)
+        {
+            btnUsuariosSistemas.ForeColor = SystemColors.ControlDarkDark;
+        }
+
+        private void Button2_MouseLeave(object sender, EventArgs e)
+        {
+            button2.ForeColor = SystemColors.ControlDarkDark;
+        }
+
+        private void BtnVisualizaOcorrencias_MouseLeave(object sender, EventArgs e)
+        {
+            btnVisualizaOcorrencias.ForeColor = SystemColors.ControlDarkDark;
+        }
     }
 }

@@ -17,19 +17,19 @@ namespace Ocorrencia_de_Manutenção
 
         public Operações()
         {
-            MeusDados = new Dados(); 
+            MeusDados = new Dados();
         }
 
-        public bool InserirUsuario(int codigo,string nome, string email, string senha, string tipo)
+        public bool InserirUsuario(int codigo, string nome, string email, string senha, string tipo)
         {
             bool gravação = false;
             bool verifica = true;
 
             Usuarios NovoUsuario;
 
-            verifica = ValidaUsuario(nome,codigo);
+            verifica = ValidaUsuario(nome, codigo);
 
-            if(verifica == false)
+            if (verifica == false)
             {
                 NovoUsuario = new Usuarios();
 
@@ -52,14 +52,14 @@ namespace Ocorrencia_de_Manutenção
         }
 
 
-        public bool InserirLab(int codigo, string adm, int codadm, int ocorrencia, int predio)
+        public bool InserirLab(int codigo, string adm, int codadm, int ocorrencia)
         {
             bool gravação = false;
             bool verifica = true;
 
             Laboratório NovoLaboratorio;
 
-            verifica = ValidaLab(codigo, predio);
+            verifica = ValidaLab(codigo);
 
             if (verifica == false)
             {
@@ -69,7 +69,7 @@ namespace Ocorrencia_de_Manutenção
                 NovoLaboratorio.Administrador = adm;
                 NovoLaboratorio.CodAdm = codigo;
                 NovoLaboratorio.Ocorrencias = ocorrencia;
-                NovoLaboratorio.Prédio = predio;
+
 
 
                 MeusDados.InserirLab(NovoLaboratorio);
@@ -83,8 +83,39 @@ namespace Ocorrencia_de_Manutenção
 
         }
 
+        public bool InserirOcorrencia(string descricao, string prioridade, string status, string atualizado, string inicio, int lab, string user)
+        {
+            bool gravação = false;
 
-        public bool ValidaLab(int codigo, int predio)
+            Ocorrencia NovaOcorrencia;
+
+
+            NovaOcorrencia = new Ocorrencia();
+
+            NovaOcorrencia.ID = NovaOcorrencia.ID;
+            NovaOcorrencia.Descriçao = descricao;
+            NovaOcorrencia.Prioridade = prioridade;
+            NovaOcorrencia.Status = status;
+            NovaOcorrencia.DataUpdate = atualizado;
+            NovaOcorrencia.DateInicio = inicio;
+            NovaOcorrencia.Laboratorio = lab;
+            NovaOcorrencia.Usuario = user;
+
+
+
+            MeusDados.InserirOcorrencia(NovaOcorrencia);
+            MeusDados.GravarOcorrenciaXML(NovaOcorrencia);
+
+            gravação = true;
+
+
+
+            return gravação;
+
+        }
+
+
+        public bool ValidaLab(int codigo)
         {
             bool lab = false;
 
@@ -92,13 +123,13 @@ namespace Ocorrencia_de_Manutenção
             {
                 XElement p = XElement.Load(@"Laboratorio.xml");
                 IEnumerable<XElement> pesquisa = from e in p.Elements("Laboratorios")
-                                                 where (int)e.Attribute("Predio") == predio 
+                                                 where (int)e.Attribute("Codigo") == codigo
                                                  select e;
 
                 foreach (XElement e in pesquisa)
                 {
 
-                    if ((int)e.Attribute("Laboratorio") == codigo && (int)e.Attribute("Predio") == predio)
+                    if ((int)e.Attribute("Codigo") == codigo)
                         lab = true;
                 }
 
@@ -124,16 +155,10 @@ namespace Ocorrencia_de_Manutenção
 
 
 
-        public void InserirOcorrencia(Ocorrencia x)
-        {
-            MeusDados.InserirOcorrencia(x);
-        }
+
 
         public bool ValidaUsuario(string usuario, int codigo)
         {
-            //bool verifica = MeusDados.ValidaUsuarios(usuario,codigo); 
-
-            //return verifica; 
 
             bool user = false;
 
@@ -172,9 +197,6 @@ namespace Ocorrencia_de_Manutenção
 
         public bool ValidaLogin(string usuario, string senha)
         {
-            //bool verifica = MeusDados.ValidaLogin(usuario,senha);
-
-            //return verifica;
 
             bool user = false;
 
@@ -213,12 +235,6 @@ namespace Ocorrencia_de_Manutenção
 
         public int PesquisaCodigoAdm(string adm)
         {
-            //int codadm;
-
-            //codadm = MeusDados.PesquisaCodigoAdm(adm);
-
-            //return codadm;
-
             int codadm = 0;
 
             try
@@ -257,14 +273,11 @@ namespace Ocorrencia_de_Manutenção
 
         public void EnviaEmail(string email, string nomeusuario, string senha)
         {
-            MeusDados.EnviaEmail(email,nomeusuario,senha);
+            MeusDados.EnviaEmail(email, nomeusuario, senha);
         }
 
-       public string VerificaTipo(string user)
+        public string VerificaTipo(string user)
         {
-            //string tipo = MeusDados.VerificaTipo(user);
-
-            // return tipo;
 
             string tipo = "";
 
@@ -283,7 +296,84 @@ namespace Ocorrencia_de_Manutenção
             return tipo;
         }
 
-        
 
+        public void EditarOcorrencias(int id, string descriçao, string Prioridade, string Status, string DataUpdate, string DateInicio, int Laboratorio, string Usuario)
+        {
+            Ocorrencia NovaOcorrencia = new Ocorrencia();
+
+            NovaOcorrencia.Descriçao = descriçao;
+            NovaOcorrencia.Prioridade = Prioridade;
+            NovaOcorrencia.Status = Status;
+            NovaOcorrencia.DataUpdate = DataUpdate;
+            NovaOcorrencia.DateInicio = DateInicio;
+            NovaOcorrencia.Laboratorio = Laboratorio;
+            NovaOcorrencia.Usuario = Usuario;
+
+            XElement xml = XElement.Load("Ocorrencias.xml");
+            XElement x = xml.Elements().Where(p => p.Attribute("Id").Value.Equals(id.ToString())).First();
+            if (x != null)
+            {
+                x.Attribute("Descricao").SetValue(NovaOcorrencia.Descriçao);
+                x.Attribute("Prioridade").SetValue(NovaOcorrencia.Prioridade);
+                x.Attribute("Status").SetValue(NovaOcorrencia.Status);
+                x.Attribute("UltimaModicacao").SetValue(NovaOcorrencia.DataUpdate);
+                x.Attribute("DataDeAbertura").SetValue(NovaOcorrencia.DateInicio);
+                x.Attribute("Laboratorio").SetValue(NovaOcorrencia.Laboratorio);
+                x.Attribute("Usuario").SetValue(NovaOcorrencia.Usuario);
+            }
+            xml.Save("Ocorrencias.xml");
+
+        }
+
+        public void EditarLaboratorio(int id, string novoadm, int novocodAdm)
+        {
+            Laboratório l = new Laboratório();
+
+            l.Administrador = novoadm;
+            l.CodAdm = novocodAdm;
+
+            XElement xml = XElement.Load("Laboratorio.xml");
+            XElement x = xml.Elements().Where(p => p.Attribute("Codigo").Value.Equals(id.ToString())).First();
+            if (x != null)
+            {
+                x.Attribute("Administrador").SetValue(l.Administrador);
+                x.Attribute("CodAdm").SetValue(l.CodAdm);
+                
+            }
+            xml.Save("Laboratorio.xml");
+
+        }
+
+        public void EditarUsuario(string username, string email, string password, string tipo)
+        {
+            Usuarios u = new Usuarios();
+
+            u.Username = username;
+            if (!email.Equals(""))
+            {
+                u.Email = email;
+            }
+            if (!password.Equals(""))
+            {
+                u.Password = password;
+            }
+            u.Tipo = tipo;
+
+            XElement xml = XElement.Load("Usuarios.xml");
+            XElement x = xml.Elements().Where(p => p.Attribute("Username").Value.Equals(username.ToString())).First();
+            if (x != null)
+            {
+                x.Attribute("Username").SetValue(u.Username);
+                if (!email.Equals(""))
+                    x.Attribute("Email").SetValue(u.Email);
+                if (!password.Equals(""))
+                    x.Attribute("Password").SetValue(u.Password);
+                x.Attribute("Tipo").SetValue(u.Tipo);
+
+
+            }
+            xml.Save("Usuarios.xml");
+
+        }
     }
 }

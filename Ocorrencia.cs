@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Ocorrencia_de_Manutenção
 {
@@ -23,6 +24,14 @@ namespace Ocorrencia_de_Manutenção
         {
             get { return _Descriçao; }
             set { _Descriçao = value; }
+        }
+
+        private string _Prioridade;
+
+        public string Prioridade
+        {
+            get { return _Prioridade; }
+            set { _Prioridade = value; }
         }
 
         private string _Status;
@@ -57,15 +66,6 @@ namespace Ocorrencia_de_Manutenção
             set { _Laboratorio = value; }
         }
 
-        private string _Predio;
-
-        public string Predio
-        {
-            get { return _Predio; }
-            set { _Predio = value; }
-        }
-
-
         private string _Usuario;
 
         public string Usuario
@@ -74,13 +74,7 @@ namespace Ocorrencia_de_Manutenção
             set { _Usuario = value; }
         }
 
-        private string _Prioridade;
-
-        public string Prioridade
-        {
-            get { return _Prioridade; }
-            set { _Prioridade = value; }
-        }
+       
 
 
         public int CodUniq()
@@ -91,7 +85,7 @@ namespace Ocorrencia_de_Manutenção
 
             return cod;
         }
-
+         
         public Ocorrencia()
         {
             ID = CodUniq();

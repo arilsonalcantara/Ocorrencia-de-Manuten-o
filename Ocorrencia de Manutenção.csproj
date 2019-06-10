@@ -58,11 +58,23 @@
     <Compile Include="CadastroUsuario.Designer.cs">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="GridLab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridLab.Designer.cs">
+      <DependentUpon>GridLab.cs</DependentUpon>
+    </Compile>
     <Compile Include="GridOcorrencia.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GridOcorrencia.Designer.cs">
       <DependentUpon>GridOcorrencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridUsuarios.Designer.cs">
+      <DependentUpon>GridUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="IControler.cs" />
     <Compile Include="Laboratório.cs" />
@@ -90,8 +102,14 @@
     <EmbeddedResource Include="CadastroUsuario.resx">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GridLab.resx">
+      <DependentUpon>GridLab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GridOcorrencia.resx">
       <DependentUpon>GridOcorrencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridUsuarios.resx">
+      <DependentUpon>GridUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuOpção.resx">
       <DependentUpon>MenuOpção.cs</DependentUpon>
