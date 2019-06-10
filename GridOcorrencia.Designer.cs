@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GridOcorrencia));
             this.dgvDados = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.cbOrdena = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.txtPesquisar = new System.Windows.Forms.ToolStripTextBox();
             this.tsbPesquisar = new System.Windows.Forms.ToolStripButton();
             this.txtDescricao = new System.Windows.Forms.TextBox();
@@ -50,13 +52,11 @@
             this.dtpAtualizado = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtIdSetup = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cbSelecione = new System.Windows.Forms.ComboBox();
-            this.cbOrdena = new System.Windows.Forms.ToolStripComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cbSelecione = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtIdSetup = new System.Windows.Forms.TextBox();
             this.gridOcorrenciaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -89,6 +89,30 @@
             this.toolStrip1.Size = new System.Drawing.Size(934, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // cbOrdena
+            // 
+            this.cbOrdena.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.cbOrdena.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.cbOrdena.Items.AddRange(new object[] {
+            "DatadeAbertura",
+            "ID",
+            "Laboratorio",
+            "Prioridade",
+            "Status"});
+            this.cbOrdena.Name = "cbOrdena";
+            this.cbOrdena.Size = new System.Drawing.Size(140, 25);
+            this.cbOrdena.Sorted = true;
+            this.cbOrdena.Text = "[Ordene por...]";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Click += new System.EventHandler(this.ToolStripButton1_Click);
             // 
             // txtPesquisar
             // 
@@ -137,6 +161,7 @@
             // cbStatus
             // 
             this.cbStatus.BackColor = System.Drawing.Color.LightGray;
+            this.cbStatus.Enabled = false;
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
             "Concluído",
@@ -147,6 +172,7 @@
             this.cbStatus.Size = new System.Drawing.Size(140, 21);
             this.cbStatus.Sorted = true;
             this.cbStatus.TabIndex = 4;
+            this.cbStatus.Text = "Pendente";
             // 
             // cbLaboratorio
             // 
@@ -285,22 +311,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SETUP";
             // 
-            // txtIdSetup
+            // label9
             // 
-            this.txtIdSetup.BackColor = System.Drawing.Color.LightGray;
-            this.txtIdSetup.Location = new System.Drawing.Point(7, 35);
-            this.txtIdSetup.Name = "txtIdSetup";
-            this.txtIdSetup.Size = new System.Drawing.Size(39, 21);
-            this.txtIdSetup.TabIndex = 0;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(55, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(62, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Selecione";
             // 
-            // label8
+            // button1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 18);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(21, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "ID";
+            this.button1.Location = new System.Drawing.Point(146, 32);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 22);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Executar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // cbSelecione
             // 
@@ -315,48 +343,22 @@
             this.cbSelecione.Sorted = true;
             this.cbSelecione.TabIndex = 2;
             // 
-            // cbOrdena
+            // label8
             // 
-            this.cbOrdena.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.cbOrdena.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.cbOrdena.Items.AddRange(new object[] {
-            "DatadeAbertura",
-            "ID",
-            "Laboratorio",
-            "Prioridade",
-            "Status"});
-            this.cbOrdena.Name = "cbOrdena";
-            this.cbOrdena.Size = new System.Drawing.Size(140, 25);
-            this.cbOrdena.Sorted = true;
-            this.cbOrdena.Text = "[Ordene por...]";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 18);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(21, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "ID";
             // 
-            // button1
+            // txtIdSetup
             // 
-            this.button1.Location = new System.Drawing.Point(146, 32);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 22);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Executar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(55, 20);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(62, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Selecione";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Click += new System.EventHandler(this.ToolStripButton1_Click);
+            this.txtIdSetup.BackColor = System.Drawing.Color.LightGray;
+            this.txtIdSetup.Location = new System.Drawing.Point(7, 35);
+            this.txtIdSetup.Name = "txtIdSetup";
+            this.txtIdSetup.Size = new System.Drawing.Size(39, 21);
+            this.txtIdSetup.TabIndex = 0;
             // 
             // gridOcorrenciaBindingSource
             // 

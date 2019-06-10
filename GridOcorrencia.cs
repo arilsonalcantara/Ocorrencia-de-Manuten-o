@@ -25,11 +25,14 @@ namespace Ocorrencia_de_Manutenção
 
         MenuOpção GridView;
 
-        public GridOcorrencia(MenuOpção x)
+        string verificatipo;
+        public GridOcorrencia(MenuOpção x, string tipo)
         {
             InitializeComponent();
 
             GridView = x;
+
+            verificatipo = tipo;
         }
 
         private void GridOcorrencia_Load(object sender, EventArgs e)
@@ -44,6 +47,11 @@ namespace Ocorrencia_de_Manutenção
             foreach (Usuarios user in u.ListarUsuarios())
             {
                 cbUsuario.Items.Add(user).ToString();
+            }
+
+            if (verificatipo == "Administrador")
+            {
+                cbStatus.Enabled = true;
             }
 
             CarregaGrid();

@@ -56,7 +56,7 @@ namespace Ocorrencia_de_Manutenção
 
         private void BtnVisualizaOcorrencias_Click(object sender, EventArgs e)
         {
-            GridOcorrencia x = new GridOcorrencia(this);
+            GridOcorrencia x = new GridOcorrencia(this, verificatipo);
 
             x.Show();
         }
